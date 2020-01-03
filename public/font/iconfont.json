@@ -1,0 +1,37 @@
+{
+  "id": "1595296",
+  "name": "sss",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1116547",
+      "name": "资讯",
+      "font_class": "zixun",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "6875117",
+      "name": "电影",
+      "font_class": "dianying",
+      "unicode": "e717",
+      "unicode_decimal": 59159
+    },
+    {
+      "icon_id": "7050198",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "11372734",
+      "name": "影院",
+      "font_class": "yingyuan",
+      "unicode": "e8c0",
+      "unicode_decimal": 59584
+    }
+  ]
+}

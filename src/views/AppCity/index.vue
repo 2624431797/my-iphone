@@ -1,10 +1,6 @@
 <template>
-    <div class="citybox">
-        <mt-header title="当前城市">
-            <router-link to="/" slot="left">
-                <mt-button icon="back">返回</mt-button>
-            </router-link>
-        </mt-header>
+    <section class="appcitybox">
+        <CityHeader />
         <mt-search
             class="search-input"
             :citys="citys"
@@ -67,12 +63,14 @@
                 </div>
             </mt-index-section>
         </mt-index-list>
-    </div>
+    </section>
 </template>
 
 <script>
+import CityHeader from "./cityHeader"
+
 export default {
-    name : "city",
+    name : "appcity",
     data(){
         return {
             citys : [],
@@ -82,6 +80,9 @@ export default {
             list : [],
             cityname : "",
         }
+    },
+    components : {
+        CityHeader
     },
     methods : {
         handlerCapitalNum(i) {
@@ -94,17 +95,37 @@ export default {
             this.$store.commit("changeCity", { id: id, nm: nm });
             this.cityname = nm
             this.$router.push({
-                name: "nowing", 
+                name: "movie", 
                 params : {
                    nm
                 } 
             });
-            localStorage.setItem("city", this.cityname);
+            sessionStorage.setItem("app-city", this.cityname);
         }, 
-        /* scrollTo(id) {
-            var id = document.getElementById(id);
-            window.scrollTo(0, id.offsetTop - 40);
-        } */
+        handlerInit(){
+            this.$http.get("/json/city.json").then((res) => {
+                this.citys = res.data.citys
+                for(let m = 0; m < 9; m++){
+                    this.hotcity.push(this.citys[m])
+                }
+                for(let i = 0; i < this.citys.length; i++){
+                    let bFlag = true;
+                    if(this.newcitys.length == 0){
+                        this.newcitys.push(this.citys[i].py.substring(0, 1));
+                    }
+                    for(let j = 0; j < this.newcitys.length; j++) {
+                        if(this.citys[i].py.substring(0, 1) == this.newcitys[j]) {
+                            bFlag = false;
+                        }
+                    }
+                    if(bFlag) {
+                        this.newcitys.push(this.citys[i].py.substring(0, 1));
+                    }
+                }
+                this.newcitys = this.newcitys.sort();
+            })
+            this.nowcity = sessionStorage.getItem("app-city")
+        }
     },
     watch : {
         keyword(){
@@ -139,55 +160,21 @@ export default {
     computed : {
         cityTitle() {
             //数据依赖更新是，计算属性重新触发更新
-            return this.$store.state.cityId;
+            return this.$store.state.cityId
         },
         hasNoData(){
-            //return this.list.length
-            if(this.list.length){
-                return true
-            }
-            return false
+            if(this.list.length) return true; return false;
         }
     },
     created(){
-        this.$http.get("/api/city.json").then((res) => {
-            this.citys = res.data.citys
-
-            for (let m = 0; m < 9; m++) {
-                this.hotcity.push(this.citys[m]);
-            }
-            for (let i = 0; i < this.citys.length; i++) {
-                let bFlag = true;
-                if (this.newcitys.length == 0) {
-                    this.newcitys.push(this.citys[i].py.substring(0, 1));
-                }
-                for (let j = 0; j < this.newcitys.length; j++) {
-                    if (this.citys[i].py.substring(0, 1) == this.newcitys[j]) {
-                        bFlag = false;
-                    }
-                }
-                if (bFlag) {
-                    this.newcitys.push(this.citys[i].py.substring(0, 1));
-                }
-            }
-            this.newcitys = this.newcitys.sort();
-        })
-        this.nowcity = localStorage.getItem("city")
+        this.handlerInit()
     }
 }
 </script>
 
 <style lang="scss">
-    .citybox{
+    .appcitybox{
         background: #fff;
-        .mint-header{
-            height: 44px;
-            color: #333;
-            background: #fff;
-            .mint-header-title{
-                font-size: 16px;
-            }
-        }
         .mint-search{
             height: 100%;
             padding: 14px -1px;
@@ -271,3 +258,8 @@ export default {
         }
     }
 </style>
+
+        /* scrollTo(id) {
+            var id = document.getElementById(id);
+            window.scrollTo(0, id.offsetTop - 40);
+        } */
