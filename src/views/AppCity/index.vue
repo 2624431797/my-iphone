@@ -95,7 +95,7 @@ export default {
             this.$store.commit("changeCity", { id: id, nm: nm });
             this.cityname = nm
             this.$router.push({
-                name: "movie", 
+                name: "nowing", 
                 params : {
                    nm
                 } 
