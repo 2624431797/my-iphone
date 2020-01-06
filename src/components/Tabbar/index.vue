@@ -1,5 +1,5 @@
 <template>
-    <div class="tabbarbox">
+    <section class="tabbarbox">
         <Tabitem
             v-for="tab in tabs"
             :key="tab.id"
@@ -8,7 +8,7 @@
             :cla="tab.cla"
             :sel="selected"
         ></Tabitem>
-    </div>
+    </section>
 </template>
 
 <script>

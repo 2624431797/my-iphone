@@ -6,7 +6,7 @@
                     v-for="ban in bans"
                     :key="ban._id"
                 >
-                    <img :src="ban.img" alt="">
+                    <img :src="ban.img" alt="加载失败">
                 </div>
             </div>
             <div class="swiper-pagination"></div>

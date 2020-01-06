@@ -38,38 +38,15 @@ export default {
     },
     watch : { 
         $route(to, from){
-            console.log(to.path)
-            this.handlerIsRouter()
-        },
-        $route : {
-            handler : (to, from) => {
-                console.log(to.path)
-                this.handlerIsRouter()
-            },
-            deep : true
-        }
-        /* '$route'(to, from){
-            if (isBack){        
-                this.transitionName = 'slide-right'      
+            this.isBack = !this.isBack
+            if(this.isBack){        
+                return this.transitionName = 'slide-right'      
             } 
             else{        
-                this.transitionName = 'slide-left'      
-            }      
-        }  */
-    },
-    methods : {
-        handlerIsRouter(){
-            const approval = window.location.hash
-            const billCode = approval.split("/")
-            this.selected = billCode[2]
-            if(this.selected === "nowing") return this.isBack = true; return this.isBack = false;
-            console.log(this.isBack)
+                return this.transitionName = 'slide-left'      
+            } 
         }
     },
-    created(){
-        this.handlerIsRouter()
-        console.log(this.isBack)
-    }
 }
 </script>
 
@@ -79,14 +56,15 @@ export default {
         .child-view {    
             position: absolute;    
             width: 100%;  
+            margin-bottom: 60px;
             transition:all .3s ease;    
-            .slide-left-enter,.slide-right-leave-active {    
+            .slide-left-enter, .slide-right-leave-active{    
                 opacity:0;  
-                transform:translate(100%,0);  
+                transform: translate(100%, 0);  
             }  
-            .slide-left-leave-active,.slide-right-enter {    
+            .slide-right-enter, .slide-left-leave-active{    
                 opacity:0;    
-                transform:translate(-100%,0);  
+                transform: translate(-100%, 0);  
             }
         }
     }

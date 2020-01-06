@@ -1,18 +1,6 @@
 <template>
     <section class="headerbox">
         <mt-header title="电影"></mt-header>
-        <el-dropdown>
-            <span class="el-dropdown-link">
-                <i class="el-icon-more el-icon--right"></i>
-            </span>
-            <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>首页</el-dropdown-item>
-                <el-dropdown-item>登录</el-dropdown-item>
-                <el-dropdown-item>订单</el-dropdown-item>
-                <el-dropdown-item>设置</el-dropdown-item>
-                <el-dropdown-item>退出</el-dropdown-item>
-            </el-dropdown-menu>
-        </el-dropdown>
     </section>
 </template>
 
@@ -26,6 +14,7 @@ export default {
     .headerbox{
         position: fixed;
         width: 100%;
+        z-index: 9999;
         .mint-header{
             width: 100%;
             color: #fff;

@@ -23,6 +23,30 @@ service.interceptors.response.use(res => {
     }
 })
 
+//首页轮播
 export const getBannerList = () => {
     return service.post(`/api/s1/getBannerList`)
+}
+
+//首页影片列表
+export const getMovieList = (select, params) => {
+    return service.post(`/api/s1/getmovielist/${select}`, { params: params })
+}
+
+
+
+
+//保存管理员
+export const initUserList = (id, data) => {
+    return service.post(`/api/v1/inituserlist/${id}`, data)
+}
+
+//新增管理员
+export const addUserList = (data) => {
+    return service.post(`/api/v1/adduserlist`, data)
+}
+
+//查找管理员
+export const searchUserList = params => {
+    return service.post(`/api/v1/searchuserlist`, { params: params })
 }
