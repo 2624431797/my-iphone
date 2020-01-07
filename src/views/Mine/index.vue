@@ -1,20 +1,22 @@
 <template>
     <section class="minebox">
-        mine!!!
+        <MineLogin />
         <Tabbar /> 
     </section>
 </template>
 
 <script>
+import MineLogin from "@/components/MineLogin";
 import Tabbar from "@/components/Tabbar"
 
 export default {
     components : {
+        MineLogin,
         Tabbar
     }
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>

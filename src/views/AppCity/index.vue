@@ -33,7 +33,8 @@
             <div class="nowcity">
                 <p>当前城市</p>
                 <div class="nowcity_list">
-                    <span>{{nowcity}}</span>
+                    <span v-if="!nowcity">定位失败，请重试选择城市</span>
+                    <span v-else>{{nowcity}}</span>
                 </div>
             </div>
             <div class="hotcity">

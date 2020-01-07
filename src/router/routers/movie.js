@@ -3,7 +3,7 @@ export default {
     component : () => import("@/views/Movie"),
     children : [
         {
-            path : "/", redirect : "nowing"
+            path : "", redirect : "nowing"
         },
         {
             name : "nowing",

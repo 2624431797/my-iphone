@@ -1,6 +1,7 @@
 <template>
     <section 
         class="movielistbox"
+        :class="{margintop : marginStatus}"
         v-infinite-scroll="handlerLoadMore"
         infinite-scroll-disabled="loading"
         infinite-scroll-distance="10"
@@ -78,6 +79,7 @@ export default {
             loading : false,
             hasMore : true,
             iShow : true,
+            marginStatus : false
         }
     },
     props : ["select"],
@@ -109,7 +111,6 @@ export default {
             })
             let para = this.select
             let params = {limit : this.limit, page : this.page}
-            setTimeout(() => {
                 getMovieList(para, params).then(res => {
                     this.movies = this.movies.concat(res.data.userlist)
                     this.loading = false            //开启无限滚动
@@ -120,7 +121,6 @@ export default {
                     }
                     this.page++
                 })
-            }, 1000)
         },
         handlerLoadMore(){
             if(!this.hasMore){              //无更多数据
@@ -140,14 +140,25 @@ export default {
             const billCode = approval.split("/")
             this.selected = billCode[2]
             if(this.selected === "nowing") return this.iShow = true; return this.iShow = false;
+        },
+        handlerScrollAuto(){
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+            if(scrollTop >= 380 && !this.marginStatus){
+                this.marginStatus = true
+            }
+            else if(scrollTop < 380 && this.marginStatus){
+                this.marginStatus = false
+            } 
         }
     },
-    created(){
+    activated(){
         this.handlerSelect()
         this.loading = false        //开启无限滚动
+        window.addEventListener("scroll", this.handlerScrollAuto)
     },
-    destroyed(){
+    deactivated(){  
         this.loading = true        //关闭无限滚动
+        window.removeEventListener("scroll", this.handlerScrollAuto)
     }
 }
 </script>
@@ -155,6 +166,9 @@ export default {
 <style lang="scss">
     .movielistbox{
         height: 100%;
+        &.margintop{
+            margin-top: 44px;
+        }
         .list-content{
             padding: 8px 10px;
             border-bottom: 1px solid #ccc;

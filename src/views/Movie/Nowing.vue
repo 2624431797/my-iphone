@@ -1,6 +1,6 @@
 <template>
     <section class="nowingbox">
-        <MovieList :select="select"/>
+        <MovieList :select="select" />
     </section>
 </template>
 
@@ -23,8 +23,13 @@ export default {
             this.select = billCode[2]
         }
     },
-    created(){
+    beforeRouteLeave(to, from, next){
+        this.scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+        next()
+    },
+    activated(){
         this.handlerSelect()
+        window.scrollTo(0, this.scrollTop)
     }
 }
 </script>

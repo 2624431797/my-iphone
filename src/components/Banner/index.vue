@@ -6,7 +6,9 @@
                     v-for="ban in bans"
                     :key="ban._id"
                 >
-                    <img :src="ban.img" alt="加载失败">
+                    <a href="JavaScript: ;">
+                        <img :src="ban.img" alt="加载失败">
+                    </a>
                 </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -21,14 +23,13 @@ import { getBannerList } from "@/services"
 export default {
     data(){
         return {
-            bans : [],
+            bans : []
         }
     },
     methods : {
         initList(){
             getBannerList().then(res => {
                 this.bans = res.data.bannerlist
-
                 this.$nextTick(() => {
                     new Swiper('.swiper-container', {
                         effect: "coverflow",

@@ -14,7 +14,7 @@ import NotFound from "./routers/notfound"
 export default new VueRouter({
     routes : [
         {
-            path : "/", redirect : "/nowing"
+            path : "/", redirect : "/movie"
         },
         Movie,
         Cinema,

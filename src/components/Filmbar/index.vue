@@ -42,12 +42,25 @@ export default {
             const approval = window.location.hash
             const billCode = approval.split("/")
             this.selected = billCode[2]
-            if(this.selected === "nowing") return this.type = "nowing"; return this.type = "coming";
+            if(this.selected === "nowing") return this.type = "nowing"; return this.type = "coming"
+        },
+        handlerScrollAuto(){
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+            if(scrollTop >= 380 && !this.fixStatus){
+                this.fixStatus = true
+            }
+            else if(scrollTop < 380 && this.fixStatus){
+                this.fixStatus = false
+            } 
         }
     },
     created(){
         this.handlerChooseBar()
+        window.addEventListener("scroll", this.handlerScrollAuto)
     },
+    beforeDestroy(){
+        window.removeEventListener("scroll", this.handlerScrollAuto)
+    }
 }
 </script>
 
@@ -67,7 +80,8 @@ export default {
             &.fixtop{
                 position: fixed;
                 left: 0;
-                top: 50px;
+                top: 40px;
+                margin-bottom: 44px;
             }
             span{
                 position: relative;

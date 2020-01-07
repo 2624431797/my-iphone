@@ -6,7 +6,9 @@
         <Banner />
         <Filmbar />
         <transition :name="transitionName" >
-            <router-view class="child-view" />
+            <keep-alive>
+                <router-view class="child-view" />
+            </keep-alive>
         </transition>
         <Tabbar />
     </section>
@@ -57,15 +59,15 @@ export default {
             position: absolute;    
             width: 100%;  
             margin-bottom: 60px;
-            transition:all .3s ease;    
-            .slide-left-enter, .slide-right-leave-active{    
+            //transition:all .3s ease;    
+            /* .slide-left-enter, .slide-right-leave-active{    
                 opacity:0;  
                 transform: translate(100%, 0);  
             }  
             .slide-right-enter, .slide-left-leave-active{    
                 opacity:0;    
                 transform: translate(-100%, 0);  
-            }
+            } */
         }
     }
 </style>
