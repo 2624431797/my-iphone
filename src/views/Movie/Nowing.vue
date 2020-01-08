@@ -27,8 +27,10 @@ export default {
         this.scrollTop = document.documentElement.scrollTop || document.body.scrollTop
         next()
     },
-    activated(){
+    created(){
         this.handlerSelect()
+    },
+    activated(){
         window.scrollTo(0, this.scrollTop)
     }
 }

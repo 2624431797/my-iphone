@@ -34,6 +34,11 @@ export const getMovieList = (select, params) => {
     return service.post(`/api/s1/getmovielist/${select}`, params)
 }
 
+//首页影片详情页
+export const getMovieDetail = id => {
+    return service.post(`/api/v1/getmoviedetail/${id}`)
+}
+
 /* 影片资讯 */
 //资讯轮播
 export const getMationBanner = () => {

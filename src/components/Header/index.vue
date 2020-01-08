@@ -1,6 +1,6 @@
 <template>
     <section class="headerbox">
-        <mt-header title="电影">
+        <mt-header :title="ititle">
             <mt-button 
                 class="header-city el-icon-place" 
                 v-if="iStatus"
@@ -34,6 +34,8 @@ export default {
             sheetVisible : false,
             newcityname : "",
             iStatus : false,
+            select : "",
+            ititle : "影片"
         }
     },
     methods : {
@@ -42,6 +44,12 @@ export default {
         },
         handlerGetCity(){
             this.newcityname = sessionStorage.getItem("app-city")
+        },
+        handlerGetSelect(){
+            const approval = window.location.hash
+            const billCode = approval.split("/")
+            this.select = billCode[1]
+            if(this.select === "movie") return this.ititle = "影片"; return this.ititle = "影院"
         },
         handlerScrollAuto(){
             let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
@@ -55,6 +63,7 @@ export default {
     },
     created(){
         this.handlerGetCity()
+        this.handlerGetSelect()
         window.addEventListener("scroll", this.handlerScrollAuto)
     },
     beforeDestroy(){

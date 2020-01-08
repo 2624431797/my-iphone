@@ -47,7 +47,7 @@
             </mt-cell>
             <div class="list_tit">
                 <span class="li_sub_tit">{{movie.title}}</span>
-                <!-- <router-link tag="div" :to="{name : 'moviedetail', params : {id : movie.id}}"> -->
+                <router-link tag="div" :to="{name : 'moviedetail', params : {id : movie.id}}">
                     <mt-button 
                         v-if="iShow" 
                         class="li_sub_btn1" 
@@ -60,7 +60,7 @@
                         type="danger" 
                         size="small"
                     >{{movie.status}}</mt-button>
-                <!-- </router-link> -->
+                </router-link>
             </div>
         </div>
     </section>

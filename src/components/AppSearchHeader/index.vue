@@ -1,6 +1,6 @@
 <template>
-    <section class="headbox">
-        <mt-header title="猫眼">
+    <section class="AppSearchHeaderbox">
+        <mt-header title="搜索">
             <div slot="left"  @click="$router.go(-1)">
                 <mt-button icon="back">返回</mt-button>
             </div>

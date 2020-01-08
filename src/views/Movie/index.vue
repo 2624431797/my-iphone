@@ -5,11 +5,9 @@
         <SearchBtn />
         <Banner />
         <Filmbar />
-        <transition :name="transitionName" >
-            <keep-alive>
-                <router-view class="child-view" />
-            </keep-alive>
-        </transition>
+        <keep-alive>
+            <router-view class="child-view" />
+        </keep-alive>
         <Tabbar />
     </section>
 </template>
@@ -23,13 +21,6 @@ import Filmbar from "@/components/Filmbar"
 import Tabbar from "@/components/Tabbar"
 
 export default {
-    data(){
-        return {
-            transitionName : "slide-left",
-            selected : "",
-            isBack : true,
-        }
-    },
     components : {
         Header,
         City,
@@ -37,37 +28,12 @@ export default {
         Banner,
         Filmbar,
         Tabbar,
-    },
-    watch : { 
-        $route(to, from){
-            this.isBack = !this.isBack
-            if(this.isBack){        
-                return this.transitionName = 'slide-right'      
-            } 
-            else{        
-                return this.transitionName = 'slide-left'      
-            } 
-        }
-    },
+    }
 }
 </script>
 
 <style lang="scss">
     .moviebox{
         overflow: hidden;
-        .child-view {    
-            position: absolute;    
-            width: 100%;  
-            margin-bottom: 60px;
-            //transition:all .3s ease;    
-            /* .slide-left-enter, .slide-right-leave-active{    
-                opacity:0;  
-                transform: translate(100%, 0);  
-            }  
-            .slide-right-enter, .slide-left-leave-active{    
-                opacity:0;    
-                transform: translate(-100%, 0);  
-            } */
-        }
     }
 </style>

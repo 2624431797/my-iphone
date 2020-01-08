@@ -1,6 +1,6 @@
 <template>
     <section class="appsearchbox">
-        <Head />
+        <AppSearchHeader />
         <mt-search
             class="search-input"
             v-model="keyword"
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Head from "@/components/Head"
+import AppSearchHeader from "@/components/AppSearchHeader"
 
 export default {
     data(){
@@ -21,7 +21,7 @@ export default {
         }
     },
     components : {
-        Head
+        AppSearchHeader
     }
 }
 </script>

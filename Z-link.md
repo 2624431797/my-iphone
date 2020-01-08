@@ -25,6 +25,7 @@ http://datav.jiaminghi.com/
 http://chartjs.cn/
 https://www.highcharts.com.cn/
 https://d3js.org/
+https://www.swiper.com.cn/
 https://picsum.photos/
 https://www.echartsjs.com/zh/index.html
 http://fontawesome.dashgame.com/

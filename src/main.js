@@ -30,6 +30,10 @@ Vue.use(MintUI)
 import 'element-ui/lib/theme-chalk/index.css'
 // Vue.use(ElementUI)
 
+//moment
+import moment from 'moment'
+Vue.prototype.$moment = moment
+
 Vue.config.productionTip = false
 
 new Vue({

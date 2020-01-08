@@ -6,11 +6,39 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "565981",
+      "name": "订单",
+      "font_class": "dingdan",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "782361",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
       "icon_id": "1116547",
       "name": "资讯",
       "font_class": "zixun",
       "unicode": "e60a",
       "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "4315696",
+      "name": "红包",
+      "font_class": "hongbao",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "6684327",
+      "name": "电影券",
+      "font_class": "dianyingquan",
+      "unicode": "e641",
+      "unicode_decimal": 58945
     },
     {
       "icon_id": "6875117",
@@ -27,11 +55,32 @@
       "unicode_decimal": 58932
     },
     {
+      "icon_id": "7192360",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e722",
+      "unicode_decimal": 59170
+    },
+    {
+      "icon_id": "10043440",
+      "name": "余额",
+      "font_class": "xinbaniconshangchuan-",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
       "icon_id": "11372734",
       "name": "影院",
       "font_class": "yingyuan",
       "unicode": "e8c0",
       "unicode_decimal": 59584
+    },
+    {
+      "icon_id": "11372761",
+      "name": "电影票",
+      "font_class": "dianyingpiao",
+      "unicode": "e8c4",
+      "unicode_decimal": 59588
     }
   ]
 }

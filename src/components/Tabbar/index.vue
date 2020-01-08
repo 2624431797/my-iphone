@@ -19,7 +19,7 @@ export default {
         return {
             selected : "",
             tabs : [
-                {id : 1, tit : "电影", mark : "movie", cla : "icon-dianying"},
+                {id : 1, tit : "影片", mark : "movie", cla : "icon-dianying"},
                 {id : 2, tit : "影院", mark : "cinema",  cla : "icon-yingyuan"},
                 {id : 3, tit : "资讯", mark : "mation",  cla : "icon-zixun"},
                 {id : 4, tit : "我的", mark : "mine",  cla : "icon-wode"},
