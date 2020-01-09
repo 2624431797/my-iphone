@@ -1,6 +1,6 @@
 <template>
     <section class="moviedetailheaderbox">
-        <mt-header title="搜索">
+        <mt-header title="猫眼">
             <div slot="left"  @click="$router.go(-1)">
                 <mt-button icon="back">返回</mt-button>
             </div>

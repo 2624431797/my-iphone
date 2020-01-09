@@ -10,6 +10,10 @@ Vue.prototype.$http = axios
 //rem计算脚本
 import "./modules/rem.js"
 
+//dataV
+import dataV from '@jiaminghi/data-view'
+Vue.use(dataV)
+
 //通用样式
 import "./style/main.scss"
 

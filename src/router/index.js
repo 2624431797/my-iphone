@@ -10,6 +10,7 @@ import Mine from "./routers/mine"
 import AppCity from "./routers/appcity"
 import AppSearch from "./routers/appsearch"
 import MovieDetail from "./routers/moviedetail"
+import MoviePurchase from "./routers/moviepurchase"
 import NotFound from "./routers/notfound"
 
 export default new VueRouter({
@@ -24,6 +25,7 @@ export default new VueRouter({
         AppCity,
         AppSearch,
         MovieDetail,
+        MoviePurchase,
         NotFound,
         {
             path: "*", redirect: "/notfound"

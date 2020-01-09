@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <div class="moviedetail-mid">
+            <div class="moviedetail-middle">
                 <p class="moviedetail-mid-txt">
                     <span>{{movie.title}}</span>
                     <i>{{movie.imax}}</i>
@@ -31,7 +31,7 @@
                     <p>{{movie.paragraph}}</p>
                 </div>
             </div>
-            <div class="moviedetail-bot">
+            <div class="moviedetail-bottom">
                 <div class="moviedetail-bot-director">
                     <p>演职导演:</p>
                     <ul>
@@ -67,7 +67,15 @@
                     </div>
                 </div>
             </div>
-            <div class="moviedetail-com">
+            <div class="moviedetail-praise">
+                <div class="moviedetail-pra-over">
+                    <dv-border-box-8>
+                        <p>实时口碑:<span>{{movie.rating.count}} 分</span></p>
+                        <dv-capsule-chart :config="config"/>
+                    </dv-border-box-8>
+                </div>
+            </div>
+            <div class="moviedetail-comment">
                 <p>评论:</p>
                 <ul>
                     <li v-for="item in movie.comment" :key="item.id">
@@ -94,7 +102,32 @@ export default {
     data(){
         return {
             movie : null,
-            banner : []
+            banner : [],
+            config : {
+                data : [
+                    {
+                        name: '爱情:',
+                        value: parseInt(Math.random() * 101)
+                    },
+                    {
+                        name: '浪漫:',
+                        value: parseInt(Math.random() * 101)
+                    },
+                    {
+                        name: '剧情:',
+                        value: parseInt(Math.random() * 101)
+                    },
+                    {
+                        name: '科幻:',
+                        value: parseInt(Math.random() * 101)
+                    },
+                    {
+                        name: '喜剧:',
+                        value: parseInt(Math.random() * 101)
+                    },
+                ],
+                colors: ['#e062ae', '#fb7293', '#e690d1', '#32c5e9', '#96bfff'],
+            }
         }
     },
     filters : {
@@ -123,7 +156,7 @@ export default {
         },
         handlerTime(para){
             return this.$moment(para).format('YYYY-MM-DD HH:mm:ss')
-        },
+        }
     },
     created(){
         this.handlerInitGet()
@@ -188,7 +221,7 @@ export default {
                     }
                 }
             }
-            .moviedetail-mid{  
+            .moviedetail-middle{  
                 width: 100%;
                 padding: 16px 18px;
                 .moviedetail-mid-txt{
@@ -228,7 +261,7 @@ export default {
                     }
                 }
             }
-            .moviedetail-bot{
+            .moviedetail-bottom{
                 width: 100%;
                 padding: 16px 18px;
                 .moviedetail-bot-director, .moviedetail-bot-actor{
@@ -271,7 +304,45 @@ export default {
                     }
                 }
             }
-            .moviedetail-com{
+            .moviedetail-praise{
+                width: 100%;
+                height: 260px;
+                padding: 16px;
+                .moviedetail-pra-over{
+                    width: 100%;
+                    height: 100%;
+                    padding: 5px;
+                    color: #fff;
+                    border-radius: 10px;
+                    background: rgba(0, 0, 0, .3);
+                    .dv-border-box-8{
+                        padding: 14px;
+                        p{
+                            position: relative;
+                            color: #ffb400;
+                            margin-bottom: 10px;
+                            span{
+                                position: absolute;
+                                right: 10px;
+                                font-size: 18px;
+                                font-weight: bold;
+                                font-style: italic;
+                            }
+                        }
+                        .dv-capsule-chart{
+                            height: 100%;
+                            .capsule-container{
+                                .unit-label{
+                                    div{
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .moviedetail-comment{
                 width: 100%;
                 border-radius: 20px 20px 0 0;
                 background: #fff;
