@@ -3,6 +3,7 @@
         <MovieDetailHeader />
         <MoviePurchaseBanner />
         <MoviePurchaseCard />
+        <MoviePurchaseFood />
     </section>
 </template>
 
@@ -10,12 +11,14 @@
 import MovieDetailHeader from "@/components/MovieDetailHeader"
 import MoviePurchaseBanner from "@/components/MoviePurchaseBanner"
 import MoviePurchaseCard from "@/components/MoviePurchaseCard"
+import MoviePurchaseFood from "@/components/MoviePurchaseFood"
 
 export default {
     components : {
        MovieDetailHeader,
        MoviePurchaseBanner,
-       MoviePurchaseCard
+       MoviePurchaseCard,
+       MoviePurchaseFood
     }
 }
 </script>

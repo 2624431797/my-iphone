@@ -102,7 +102,7 @@ export default {
             height: 225px;
             padding: 26px 0;
             overflow: hidden;
-            background: rgba(255, 255, 255, .6);
+            background: rgba(255, 255, 255, .8);
             .swiper-slide {
                 display: flex;
                 justify-content: center;

@@ -34,7 +34,7 @@
                         </span>
                     </p> 
                     <p class="list-sub-average">
-                        想看: {{movie.rating.average | showNum}} 人
+                        想看: {{movie.rating.average | handlerShowNum}} 人
                     </p>  
                     <p class="list-sub-pubdate">
                         {{movie.country}} | {{movie.duration}}分钟
@@ -92,7 +92,7 @@ export default {
         }
     },
     filters : {
-        showNum(n){
+        handlerShowNum(n){
             if(n >= 10000){
                 n = n / 10000 
                 n = n.toFixed(1)

@@ -43,6 +43,15 @@ export const getMovieDetail = id => {
 export const getMoviePurchase = id => {
     return service.post(`/api/v1/getmoviepurchase/${id}`)
 }
+//首页影片购买页商品
+export const getMoviePurchaseFood = id => {
+    return service.post(`/api/v1/getmoviepurchasefood/${id}`)
+}
+
+//根据日期查询数据
+export const getMoviePurchaseTabList = (id, date) => {
+    return service.post(`/api/v1/getdatemoviepurchase/${id}`, date)
+}
 
 /* 影片资讯 */
 //资讯轮播
