@@ -15,9 +15,9 @@
             </div>
             <div class="moviepurchasecard-tabbar">
                 <mt-navbar class="moviepurchasecard-navbar" v-model="selected">
-                    <mt-tab-item id="1">昨天 {{this.prevDate}}</mt-tab-item>
-                    <mt-tab-item id="2">今天 {{this.nowDate}}</mt-tab-item>
-                    <mt-tab-item id="3">明天 {{this.nextDate}}</mt-tab-item>
+                    <mt-tab-item id="1">今天 {{this.nowDate}}</mt-tab-item>
+                    <mt-tab-item id="2">明天 {{this.nextDate}}</mt-tab-item>
+                    <mt-tab-item id="3">后天 {{this.afterDate}}</mt-tab-item>
                 </mt-navbar>
                 <dv-loading v-if="!film"></dv-loading>
                 <mt-tab-container class="moviepurchasecard-tabcontainer" v-model="active" swipeable v-else>
@@ -41,7 +41,10 @@
                                         <li class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-price">
                                             <span>￥{{item.price}}</span>
                                         </li>
-                                        <li class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-shopbtn">
+                                        <li 
+                                            class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-shopbtn"
+                                            @click="handlerLinkSeats"
+                                        >
                                             <a href="Javascript: ;">购票</a>
                                         </li>
                                     </ul>
@@ -69,7 +72,10 @@
                                         <li class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-price">
                                             <span>￥{{item.price}}</span>
                                         </li>
-                                        <li class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-shopbtn">
+                                        <li 
+                                            class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-shopbtn"
+                                            @click="handlerLinkSeats"
+                                        >
                                             <a href="Javascript: ;">购票</a>
                                         </li>
                                     </ul>
@@ -97,7 +103,10 @@
                                         <li class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-price">
                                             <span>￥{{item.price}}</span>
                                         </li>
-                                        <li class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-shopbtn">
+                                        <li 
+                                            class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-shopbtn"
+                                            @click="handlerLinkSeats"
+                                        >
                                             <a href="Javascript: ;">购票</a>
                                         </li>
                                     </ul>
@@ -120,12 +129,12 @@ export default {
             realm : "",
             movie : null,
             film : null,
-            selected : "2",
-            active : "tab-container2",
+            selected : "1",
+            active : "tab-container1",
             nowMs : null,
-            prevDate : "",
             nowDate : "",
             nextDate : "",
+            afterDate : "",
             relamDate : ""
         }
     },
@@ -176,9 +185,12 @@ export default {
         },
         handlerGetDate(){       //使用moment
             this.nowMs = Date.now()
-            this.prevDate = this.$moment().subtract(1, 'days').format('MM-DD')     //前一天日期
             this.nowDate = this.$moment().format('MM-DD')                          //当前日期
-            this.nextDate = this.$moment().subtract(-1, 'days').format('MM-DD')    //后一天日期
+            this.nextDate = this.$moment().subtract(-1, 'days').format('MM-DD')    //再一天日期
+            this.afterDate = this.$moment().subtract(-2, 'days').format('MM-DD')     //后一天日期
+        },
+        handlerLinkSeats(){
+            this.$router.push({name : 'movieseats', params : {id : this.realm}})
         }
     },
     created(){

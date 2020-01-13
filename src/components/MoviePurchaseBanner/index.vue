@@ -45,13 +45,20 @@ export default {
     methods : {
         handlerInitGet(){
             getMoviePurchase().then(res => {
-                this.imgUrl = res.data.userlist.imgUrl
                 this.banners = this.banners.concat(res.data.userlist.img)
                 this.$nextTick(() => {
                     new Swiper('.swiper-container-moviepurchasebanner', {
                         slidesPerView: 3,
                         spaceBetween: 15,
                         centeredSlides: true,
+                        on : {
+                            init : () => {
+                                this.imgUrl = res.data.userlist.imgUrl
+                            },
+                            slideChangeTransitionEnd : () => {
+                                this.handlerLoad()
+                            }
+                        },
                         pagination : {
                             el : ".swiper-pagination-moviepurchasebanner",
                             dynamicBullets: true,
@@ -63,6 +70,12 @@ export default {
         handlerGetCity(){
             this.newcityname = sessionStorage.getItem("app-city")
         },
+        handlerLoad(){
+            getMoviePurchase().then(res => {
+                this.imgUrl = ""
+                this.imgUrl = res.data.userlist.imgUrl
+            })
+        }
     },
     created(){
         this.handlerInitGet()

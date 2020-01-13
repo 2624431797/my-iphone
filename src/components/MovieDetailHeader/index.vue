@@ -1,6 +1,6 @@
 <template>
     <section class="moviedetailheaderbox">
-        <mt-header title="猫眼">
+        <mt-header :title="iTitle">
             <div slot="left"  @click="$router.go(-1)">
                 <mt-button icon="back">返回</mt-button>
             </div>
@@ -9,8 +9,32 @@
 </template>
 
 <script>
-export default {
+import { getMovieDetail } from "@/services"
 
+export default {
+    data(){
+        return {
+            realm : "",
+            iTitle : ""
+        }
+    },
+    methods : {
+        handlerRealm(){
+            const approval = window.location.hash
+            const billCode = approval.split("/")
+            this.realm = billCode[2]
+        },
+        handlerTitle(){
+            let id = this.realm
+            getMovieDetail(id).then(res => {
+                this.iTitle = res.data.userlist.title
+            })
+        }
+    },
+    created(){
+        this.handlerRealm()
+        this.handlerTitle()
+    }
 }
 </script>
 

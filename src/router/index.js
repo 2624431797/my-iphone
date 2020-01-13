@@ -8,9 +8,11 @@ import Cinema from "./routers/cinema"
 import Mation from "./routers/mation"
 import Mine from "./routers/mine"
 import AppCity from "./routers/appcity"
+import AppCart from "./routers/appcart"
 import AppSearch from "./routers/appsearch"
 import MovieDetail from "./routers/moviedetail"
 import MoviePurchase from "./routers/moviepurchase"
+import MovieSeats from "./routers/movieseats"
 import NotFound from "./routers/notfound"
 
 export default new VueRouter({
@@ -23,9 +25,11 @@ export default new VueRouter({
         Mation,
         Mine,
         AppCity,
+        AppCart,
         AppSearch,
         MovieDetail,
         MoviePurchase,
+        MovieSeats,
         NotFound,
         {
             path: "*", redirect: "/notfound"

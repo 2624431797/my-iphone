@@ -26,10 +26,10 @@ export default {
     data(){
         return {
             actions : [
-                {name : "首页", method : ""},
-                {name : "登录", method : ""},
-                {name : "订单", method : ""},
-                {name : "我的", method : ""},
+                {name : "首页", method : this.handlerLinkMain},
+                {name : "登录", method : this.handlerLinkLogin},
+                {name : "订单", method : this.handlerLinkCart},
+                {name : "我的", method : this.handlerLinkMine},
             ],
             sheetVisible : false,
             newcityname : "",
@@ -59,6 +59,18 @@ export default {
             else if(scrollTop < 380 && this.iStatus){
                 this.iStatus = false
             } 
+        },
+        handlerLinkMain(){
+            this.$router.push("/")
+        },
+        handlerLinkLogin(){
+            this.$router.push("/login")
+        },
+        handlerLinkCart(){
+            this.$router.push("/appcart")
+        },
+        handlerLinkMine(){
+            this.$router.push("/mine")
         }
     },
     created(){
