@@ -8,6 +8,7 @@
 import MovieList from "@/components/MovieList"
 
 export default {
+    name : "nowing",
     data(){
         return {
             select : "",

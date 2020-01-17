@@ -30,9 +30,12 @@ import MintUI from 'mint-ui'
 Vue.use(MintUI)
 
 //element-ui
-// import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-// Vue.use(ElementUI)
+
+//vant
+import Vant from 'vant'
+import 'vant/lib/index.css'
+Vue.use(Vant)
 
 //moment
 import moment from 'moment'

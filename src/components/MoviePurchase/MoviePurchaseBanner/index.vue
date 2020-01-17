@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="swiper-triangle">
-                <img src="../../assets/arg.png" alt="">
+                <img src="../../../assets/arg.png" alt="">
             </div>
         </div>
     </section>
@@ -108,6 +108,8 @@ export default {
             position: absolute;
             width: 100%;
             height: 225px;
+            filter: blur(20px);
+            z-index: -1;
         }
         .swiper-container-moviepurchasebanner{
             position: absolute;
@@ -115,7 +117,6 @@ export default {
             height: 225px;
             padding: 26px 0;
             overflow: hidden;
-            background: rgba(255, 255, 255, .8);
             .swiper-slide {
                 display: flex;
                 justify-content: center;

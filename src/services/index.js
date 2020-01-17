@@ -53,6 +53,11 @@ export const getMoviePurchaseTabList = (id, date) => {
     return service.post(`/api/v1/getdatemoviepurchase/${id}`, date)
 }
 
+//首页影片购买页根据id查询商品
+export const getMovieGoodsById = id => {
+    return service.post(`/api/v1/getmoviegoodsById/${id}`)
+}
+
 /* 影片资讯 */
 //资讯轮播
 export const getMationBanner = () => {

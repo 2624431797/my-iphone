@@ -12,6 +12,7 @@ import AppCart from "./routers/appcart"
 import AppSearch from "./routers/appsearch"
 import MovieDetail from "./routers/moviedetail"
 import MoviePurchase from "./routers/moviepurchase"
+import MovieGoods from "./routers/moviegoods"
 import MovieSeats from "./routers/movieseats"
 import NotFound from "./routers/notfound"
 
@@ -29,6 +30,7 @@ export default new VueRouter({
         AppSearch,
         MovieDetail,
         MoviePurchase,
+        MovieGoods,
         MovieSeats,
         NotFound,
         {

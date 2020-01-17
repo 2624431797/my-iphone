@@ -2,7 +2,7 @@
     <section class="mineloginbox">
         <div class="minelogin-container">
             <div class="minelogin-img">
-                <img src="../../assets/user.png" alt="">
+                <img src="../../../assets/user.png" alt="">
             </div>
             <div class="minelogin-name">
                 <span>立即登录</span>
@@ -25,7 +25,7 @@ export default {
             height: 220px;
             justify-content: center;
             align-items: center;
-            background: url('../../assets/mine-bg.png');
+            background: url('../../../assets/mine-bg.png');
             .minelogin-img{
                 width: 80px;
                 height: 80px;

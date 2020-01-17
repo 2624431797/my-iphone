@@ -5,8 +5,8 @@
         <SearchBtn />
         <Banner />
         <Filmbar />
-        <keep-alive>
-            <router-view class="child-view" />
+        <keep-alive :include="aliveRouter">
+            <router-view />
         </keep-alive>
         <Tabbar />
     </section>
@@ -17,10 +17,15 @@ import Header from "@/components/Header"
 import City from "@/components/City"
 import SearchBtn from "@/components/SearchBtn"
 import Banner from "@/components/Banner"
-import Filmbar from "@/components/Filmbar"
+import Filmbar from "@/components/FilmBar"
 import Tabbar from "@/components/Tabbar"
 
 export default {
+    data(){
+        return {
+            aliveRouter : ["nowing", "coming"]
+        }
+    },
     components : {
         Header,
         City,

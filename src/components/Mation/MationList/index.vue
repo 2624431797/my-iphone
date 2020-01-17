@@ -24,7 +24,7 @@
                         <img :src="item.img" alt="加载失败">
                     </div>
                 </div>
-                <img src="../../assets/mat.jpg" alt="">
+                <img src="../../../assets/mat.jpg" alt="">
             </li>
         </ul>
     </section>

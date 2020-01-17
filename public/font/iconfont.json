@@ -20,6 +20,13 @@
       "unicode_decimal": 58968
     },
     {
+      "icon_id": "1082775",
+      "name": "输入",
+      "font_class": "icon",
+      "unicode": "e698",
+      "unicode_decimal": 59032
+    },
+    {
       "icon_id": "1116547",
       "name": "资讯",
       "font_class": "zixun",
@@ -32,6 +39,13 @@
       "font_class": "hongbao",
       "unicode": "e619",
       "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "4954910",
+      "name": "正确",
+      "font_class": "zhengque",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
     },
     {
       "icon_id": "6684327",
@@ -60,6 +74,13 @@
       "font_class": "shezhi",
       "unicode": "e722",
       "unicode_decimal": 59170
+    },
+    {
+      "icon_id": "7789623",
+      "name": "重置",
+      "font_class": "zhongzhi",
+      "unicode": "e605",
+      "unicode_decimal": 58885
     },
     {
       "icon_id": "10043440",

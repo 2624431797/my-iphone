@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import MovieDetailHeader from "@/components/MovieDetailHeader"
-import MoviePurchaseBanner from "@/components/MoviePurchaseBanner"
-import MoviePurchaseCard from "@/components/MoviePurchaseCard"
-import MoviePurchaseFood from "@/components/MoviePurchaseFood"
+import MovieDetailHeader from "@/components/MovieDetail/MovieDetailHeader"
+import MoviePurchaseBanner from "@/components/MoviePurchase/MoviePurchaseBanner"
+import MoviePurchaseCard from "@/components/MoviePurchase/MoviePurchaseCard"
+import MoviePurchaseFood from "@/components/MoviePurchase/MoviePurchaseFood"
 
 export default {
     components : {

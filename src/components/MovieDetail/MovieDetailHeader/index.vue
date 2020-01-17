@@ -1,7 +1,7 @@
 <template>
     <section class="moviedetailheaderbox">
         <mt-header :title="iTitle">
-            <div slot="left"  @click="$router.go(-1)">
+            <div slot="left"  @click="handlerReload">
                 <mt-button icon="back">返回</mt-button>
             </div>
         </mt-header>
@@ -29,6 +29,9 @@ export default {
             getMovieDetail(id).then(res => {
                 this.iTitle = res.data.userlist.title
             })
+        },
+        handlerReload(){
+            this.$router.go(-1)
         }
     },
     created(){
@@ -50,6 +53,7 @@ export default {
         }
         .mint-button-text{
             font-size: 14px;
+            line-height: 16px;
         }
     }
 </style>

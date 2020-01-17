@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import MationBanner from "@/components/MationBanner"
-import MationList from "@/components/MationList"
+import MationBanner from "@/components/Mation/MationBanner"
+import MationList from "@/components/Mation/MationList"
 import Tabbar from "@/components/Tabbar"
 
 export default {

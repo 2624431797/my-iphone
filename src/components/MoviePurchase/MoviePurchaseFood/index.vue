@@ -25,7 +25,9 @@
                                     </div>
                                     <div class="food_btn">
                                         <b>{{item.iSum | handlerShowNum}}已买</b>
-                                        <a href="Javascript: ;">购买</a>
+                                        <router-link tag="div" :to="{name : 'moviegoods', params : {id : item.id}}">
+                                            <a href="Javascript: ;">去购买</a>
+                                        </router-link>
                                     </div>
                                 </div>
                             </div>
@@ -94,6 +96,7 @@ export default {
                     }
                 }
                 .moviepurchasefood-shopfood-foodwarp-content{
+                    height: 100%;
                     .moviepurchasefood-shopfood-foodwarp-content-foodlist{
                         padding: 13px 10px;
                         border-bottom: 1px solid #dedede;
@@ -112,7 +115,7 @@ export default {
                                 height: 100px;
                                 flex-direction: column;
                                 justify-content: space-between;
-                                float:right;
+                                float: right;
                                 .food_tit{
                                     span{
                                         font-size: 14px;
@@ -142,13 +145,15 @@ export default {
                                             color: #999;
                                             margin-right: 7px;
                                         }
-                                        a{
-                                            padding: 6px 10px;
-                                            font-size: 12px;
-                                            border-radius: 5px;
-                                            text-align: center;
-                                            color: #fff;
-                                            background-color: #f03d37;
+                                        div{
+                                            a{
+                                                padding: 6px 10px;
+                                                font-size: 12px;
+                                                border-radius: 5px;
+                                                text-align: center;
+                                                color: #fff;
+                                                background-color: #f03d37;
+                                            }
                                         }
                                     }
                                 }

@@ -20,7 +20,7 @@
                     <mt-tab-item id="3">后天 {{this.afterDate}}</mt-tab-item>
                 </mt-navbar>
                 <dv-loading v-if="!film"></dv-loading>
-                <mt-tab-container class="moviepurchasecard-tabcontainer" v-model="active" swipeable v-else>
+                <mt-tab-container class="moviepurchasecard-tabcontainer" v-model="active" v-else>
                     <mt-tab-container-item id="tab-container1">
                         <div class="moviepurchasecard-tabcontainer-seats">
                             <div 
@@ -39,13 +39,13 @@
                                             <b>{{item.hallName}}</b>
                                         </li>
                                         <li class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-price">
-                                            <span>￥{{item.price}}</span>
+                                            <span>￥</span><span>{{item.price}}</span>
                                         </li>
                                         <li 
                                             class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-shopbtn"
-                                            @click="handlerLinkSeats"
+                                            @click="handlerGetInner"
                                         >
-                                            <a href="Javascript: ;">购票</a>
+                                            <a @click="handlerLinkSeats" href="Javascript: ;">购票</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -70,13 +70,13 @@
                                             <b>{{item.hallName}}</b>
                                         </li>
                                         <li class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-price">
-                                            <span>￥{{item.price}}</span>
+                                            <span>￥</span><span>{{item.price}}</span>
                                         </li>
                                         <li 
                                             class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-shopbtn"
-                                            @click="handlerLinkSeats"
+                                            @click="handlerGetInner"
                                         >
-                                            <a href="Javascript: ;">购票</a>
+                                            <a @click="handlerLinkSeats" href="Javascript: ;">购票</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -101,13 +101,13 @@
                                             <b>{{item.hallName}}</b>
                                         </li>
                                         <li class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-price">
-                                            <span>￥{{item.price}}</span>
+                                            <span>￥</span><span>{{item.price}}</span>
                                         </li>
                                         <li 
                                             class="moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-shopbtn"
-                                            @click="handlerLinkSeats"
+                                            @click="handlerGetInner"
                                         >
-                                            <a href="Javascript: ;">购票</a>
+                                            <a @click="handlerLinkSeats" href="Javascript: ;">购票</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -129,6 +129,7 @@ export default {
             realm : "",
             movie : null,
             film : null,
+            theatres : "",
             selected : "1",
             active : "tab-container1",
             nowMs : null,
@@ -161,6 +162,12 @@ export default {
         },
         relamDate(){
             this.handlerInitGetTab()
+        },
+        "theatres" : {
+            handler(){
+                this.handlerLinkSeats()
+            },
+            deep : true
         }
     },
     methods : {
@@ -190,8 +197,21 @@ export default {
             this.afterDate = this.$moment().subtract(-2, 'days').format('MM-DD')     //后一天日期
         },
         handlerLinkSeats(){
-            this.$router.push({name : 'movieseats', params : {id : this.realm}})
-        }
+            setTimeout(() => {
+                this.$router.push({
+                    name : 'movieseats', 
+                    params : {
+                        id : this.realm, 
+                        theatre : this.theatres
+                    }
+                })
+            }, 200)
+        },
+        handlerGetInner(e){
+            this.theatres = e.currentTarget.previousElementSibling.previousElementSibling.lastElementChild.innerHTML
+            let moviePrice = e.currentTarget.previousElementSibling.lastElementChild.innerHTML
+            this.$store.commit("changeMoviePrice", {moviePrice : moviePrice})
+        },
     },
     created(){
         this.handlerRealm()
@@ -302,9 +322,9 @@ export default {
                                 }
                                 .moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-price{
                                     span{
-                                            color: #f03d37;
-                                            font-size: 16px;
-                                            font-weight: bold;
+                                        color: #f03d37;
+                                        font-size: 16px;
+                                        font-weight: bold;
                                     }
                                 }
                                 .moviepurchasecard-tabcontainer-seats-warp-shoplist-shopitem-shopbtn{

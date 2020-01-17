@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import MineLogin from "@/components/MineLogin"
-import MineOrderTab from "@/components/MineOrderTab"
-import MineCardList from "@/components/MineCardList"
+import MineLogin from "@/components/Mine/MineLogin"
+import MineOrderTab from "@/components/Mine/MineOrderTab"
+import MineCardList from "@/components/Mine/MineCardList"
 import Tabbar from "@/components/Tabbar"
 
 export default {

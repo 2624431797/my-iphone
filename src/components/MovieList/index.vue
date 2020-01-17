@@ -241,6 +241,7 @@ export default {
                 .mint-button{
                     padding: 0 30px;
                     margin-top: 5px;
+                    line-height: 32px;
                 }
             }
         }
