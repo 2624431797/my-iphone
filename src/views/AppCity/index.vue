@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import CityHeader from "./cityHeader"
+import CityHeader from "./CityHeader"
 
 export default {
     name : "appcity",

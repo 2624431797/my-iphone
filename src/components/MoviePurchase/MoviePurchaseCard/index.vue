@@ -259,6 +259,7 @@ export default {
         .moviepurchasecard-tabbar{
             width: 100%;
             padding: 0 10px;
+            background: #fff;
             .moviepurchasecard-navbar{
                 .mint-tab-item{
                     .mint-tab-item-label{

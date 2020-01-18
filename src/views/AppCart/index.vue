@@ -1,15 +1,22 @@
 <template>
     <section class="appcartbox">
-        cart!!!!!
+        <CartHeader />
+        <CartCarder />
     </section>
 </template>
 
 <script>
-export default {
+import CartHeader from "@/components/Cart/CartHeader"
+import CartCarder from "@/components/Cart/CartCarder"
 
+export default {
+    components : {
+        CartHeader,
+        CartCarder
+    }
 }
 </script>
 
 <style lang="scss">
-
+    
 </style>

@@ -60,14 +60,14 @@
                     </div>
                 </template>
             </div>
-            <div class="movieseatssubion-seat-price">
+            <div v-if="newArrLength" class="movieseatssubion-seat-price">
                 <div class="movieseatssubion-seat-price-left">
                     <span>影票单价:</span>
                     <b>{{MoviePriceState}} 元</b>
                 </div>
                 <div class="movieseatssubion-seat-price-right">
                     <span>影票总价:</span>
-                    <b>{{moviePriceSum}} 元</b>
+                    <b>{{MoviePriceSumReal}} 元</b>
                 </div>
             </div>
             <div class="movieseatssubion-btn-bottom">
@@ -97,12 +97,16 @@ export default {
             moviePriceSum : 0,
             position: { x: 0, y: 0 },
             nx: '', ny: '', dx: '', dy: '', xPum: '', yPum: '',
-            newArrNum : []
+            newArrNum : [],
+            newArrLength : 0
         }
     },
     computed : {
         MoviePriceState(){
             return this.moviePrice = this.$store.state.myCart.moviePrice
+        },
+        MoviePriceSumReal(){
+            return this.MoviePriceState * this.newArrLength
         }
     },
     methods : {
@@ -241,6 +245,7 @@ export default {
                 }
             }
             this.seatArray = oldArray
+            this.newArrLength = 0
         },
         //选定且购买座位
         handlerBuySeat(){
@@ -329,6 +334,7 @@ export default {
         handlerGetParams(){
             this.theatres = this.$route.params.theatre
         },
+        //计算总价
         handlerWatchSeats(){
             let newArr = this.seatArray
             for(let x = 0;x < this.seatRow; x++){
@@ -337,21 +343,16 @@ export default {
                 }
             }
             let newSeatArr = this.newArrNum
-            console.log(newSeatArr)
+            this.newArrNum = []
+            let iArr = newSeatArr.filter(item => {
+                return item > 0
+            })
+            this.newArrLength = iArr.length
         }
     },
-    /* watch : {
-        seatArray : {
-            handler(){
-                this.handlerWatchSeats()
-            },
-            deep : true
-        }
-    }, */
     mounted(){
         this.handlerinitSeatArray()
         this.handlerGetParams()
-        //this.handlerWatchSeats()
     }
 }
 </script>

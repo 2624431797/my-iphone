@@ -1,9 +1,11 @@
 <template>
     <section class="minecardlistbox">
-        <mt-cell title="影券">
-            <i slot="icon" class="iconfont icon-dianyingquan" style="color: #ff5f16"/>
-            <b class="el-icon-arrow-right"></b>
-        </mt-cell>
+        <router-link to="/coupon">
+            <mt-cell title="影券">
+                <i slot="icon" class="iconfont icon-dianyingquan" style="color: #ff5f16"/>
+                <b class="el-icon-arrow-right"></b>
+            </mt-cell>
+        </router-link>
         <mt-cell title="红包">
             <i slot="icon" class="iconfont icon-hongbao" style="color: #f03d37"/>
             <b class="el-icon-arrow-right"></b>
@@ -25,7 +27,7 @@
 
 <script>
 export default {
-    
+
 }
 </script>
 
@@ -36,6 +38,7 @@ export default {
             padding: 5px;
             .mint-cell-title{
                 display: flex;
+                color: #333;
                 i{
                     font-size: 20px;
                     margin-right: 16px;

@@ -14,6 +14,7 @@ import MovieDetail from "./routers/moviedetail"
 import MoviePurchase from "./routers/moviepurchase"
 import MovieGoods from "./routers/moviegoods"
 import MovieSeats from "./routers/movieseats"
+import Coupon from "./routers/coupon"
 import NotFound from "./routers/notfound"
 
 export default new VueRouter({
@@ -32,6 +33,7 @@ export default new VueRouter({
         MoviePurchase,
         MovieGoods,
         MovieSeats,
+        Coupon,
         NotFound,
         {
             path: "*", redirect: "/notfound"

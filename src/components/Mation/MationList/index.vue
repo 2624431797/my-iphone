@@ -90,6 +90,7 @@ export default {
 <style lang="scss">
     .mationlistbox{
         width: 100%;
+        margin-bottom: 60px;
         .mationlist-container{
             .mationlist-item{
                 display: flex;
