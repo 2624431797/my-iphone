@@ -38,6 +38,7 @@ https://zh.nuxtjs.org/
 https://panjiachen.github.io/vue-element-admin-site/zh/
 http://www.expressjs.com.cn/
 http://mint-ui.github.io/#!/zh-cn
+https://didi.github.io/mand-mobile/#/zh-CN/docs/started
 https://youzan.github.io/vant/#/zh-CN/quickstart
 https://muse-ui.org/#/zh-CN/installation
 https://element.eleme.cn/#/zh-CN

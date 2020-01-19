@@ -68,3 +68,9 @@ export const getMationBanner = () => {
 export const getMationList = params => {
     return service.post(`/api/z1/getmationlist`, params)
 }
+
+/* 影片我的 */
+//影券
+export const getMineCoupon = select => {
+    return service.post(`/api/m1/getminecoupon/${select}`)
+}

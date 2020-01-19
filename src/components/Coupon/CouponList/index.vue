@@ -1,9 +1,9 @@
 <template>
     <section class="couponlistbox">
         <van-coupon-list
-            :coupons="coupons"
-            :chosen-coupon="chosenCoupon"
+            :coupons="coupon"
             :disabled-coupons="disabledCoupons"
+            :chosen-coupon="chosenCoupon"
             @change="handlerOnChange"
             @exchange="handlerOnExchange"
             :show-close-button="false"
@@ -12,50 +12,60 @@
 </template>
 
 <script>
-const coupon = {
-    available: 1,
-    condition: '无使用门槛\n最多优惠12元',
-    description : '可用',
-    reason: '不可用',
-    value: 150,
-    name: '优惠券名称',
-    startAt: 1489104000,
-    endAt: 1514592000,
-    valueDesc: '1.5',
-    unitDesc: '元'
-}
+import { getMineCoupon } from "@/services"
 
 export default {
     data() {
         return {
             chosenCoupon: -1,
-            coupons: [coupon],
-            disabledCoupons: [coupon]
-        }
-    },
-    methods: {
-        handlerInitDate(){
-            const coupon = {
-                available: 1,
+            coupon: [{
                 condition: '无使用门槛\n最多优惠12元',
-                reason: '',
+                description : '可用',
                 value: 150,
                 name: '优惠券名称',
                 startAt: 1489104000,
                 endAt: 1514592000,
                 valueDesc: '1.5',
                 unitDesc: '元'
-            }
+            }, {
+                condition: '无使用门槛\n最多优惠12元',
+                description : '可用',
+                value: 150,
+                name: '优惠券名称',
+                startAt: 1489104000,
+                endAt: 1514592000,
+                valueDesc: '1.5',
+                unitDesc: '元'
+            }],
+            disabledCoupons: [{
+                condition: '无使用门槛\n最多优惠12元',
+                reason: '不可用',
+                value: 150,
+                name: '优惠券名称',
+                startAt: 1489104000,
+                endAt: 1514592000,
+                valueDesc: '1.5',
+                unitDesc: '元'
+            }],
+            select : "useable",
+            minelist : []        }
+    },
+    methods: {
+        handlerInitDate(){
+            let {select} = this
+            getMineCoupon(select).then(res => {
+                this.minelist = this.minelist.concat(res.data.minelist)
+            })
         },
-        handlerOnChange(index) {
+        handlerOnChange(index){
             this.chosenCoupon = index
         },
-        handlerOnExchange(code) {
+        handlerOnExchange(code){
             this.coupons.push(coupon)
         }
     },
     created(){
-        //this.handlerInitDate()
+        this.handlerInitDate()
     }
 }
 </script>
@@ -96,9 +106,9 @@ export default {
                     div:nth-child(2){
                         .van-coupon-list__list{
                             .van-coupon__content{
-                                background-size: 65px 65px;
+                                background-size: 80px 80px;
                                 background-image: url('../../../assets/expired.png');
-                                background-position: top 7px right 7px;
+                                background-position: top 20px right 10px;
                                 background-repeat: no-repeat;
                             }
                         }

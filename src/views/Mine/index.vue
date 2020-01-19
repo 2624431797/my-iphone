@@ -24,5 +24,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+    .minebox{
+        background: #fff;
+    }
 </style>
