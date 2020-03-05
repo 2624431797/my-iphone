@@ -22,5 +22,10 @@ export default {
         .mint-header-title{
             font-size: 16px;
         }
+        .mint-button{
+            .mint-button-text{
+                line-height: 15px;
+            }
+        }
     }
 </style>

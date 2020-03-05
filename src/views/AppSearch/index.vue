@@ -33,6 +33,14 @@ export default {
             height: 50px;
             background-color: #f5f5f5;
             border-bottom: 1px solid #e5e5e5;
+            .mint-searchbar-inner{
+                border: 1px solid #e6e6e6;
+                i{
+                    margin-right: 3px;
+                    margin-top: 2px;
+                    font-size: 14px;
+                }
+            }
             .mint-searchbar-cancel{
                 color: #e54847!important;
             }

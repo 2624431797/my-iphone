@@ -204,7 +204,7 @@ export default {
                 text-align: center;
                 line-height: 12px;
                 border-radius: 3px;
-                background-color: #f4f4f4;
+                background-color: #dedbdb;
             }
         }
         .hotcity{
@@ -230,7 +230,7 @@ export default {
                     text-align: center;
                     line-height: 12px;
                     border-radius: 3px;
-                    background-color: #f4f4f4;
+                    background-color: #dedbdb;
                 }
             }
         }

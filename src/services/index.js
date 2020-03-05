@@ -58,6 +58,17 @@ export const getMovieGoodsById = id => {
     return service.post(`/api/v1/getmoviegoodsById/${id}`)
 }
 
+/* 影片影院 */
+//影院列表
+export const getCinemaList = params => {
+    return service.post(`/api/a1/getCinemaList`, params)
+}
+
+//影院列表选择
+export const getCinemaListChange = item => {
+    return service.post(`/api/a1/getCinemaListChange`, item)
+}
+
 /* 影片资讯 */
 //资讯轮播
 export const getMationBanner = () => {

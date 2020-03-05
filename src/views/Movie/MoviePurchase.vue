@@ -19,10 +19,11 @@ export default {
        MoviePurchaseBanner,
        MoviePurchaseCard,
        MoviePurchaseFood
-    }
+    },
+    
 }
 </script>
 
 <style lang="scss">
-
+    
 </style>

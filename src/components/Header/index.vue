@@ -53,12 +53,16 @@ export default {
         },
         handlerScrollAuto(){
             let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-            if(scrollTop >= 380 && !this.iStatus){
+            if(this.select === "cinema"){
+                this.iStatus = false
+            }
+            else if(scrollTop >= 380 && !this.iStatus){
                 this.iStatus = true
             }
             else if(scrollTop < 380 && this.iStatus){
                 this.iStatus = false
             } 
+            
         },
         handlerLinkMain(){
             this.$router.push("/")
@@ -88,6 +92,9 @@ export default {
     .headerbox{
         position: fixed;
         width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
         z-index: 9999;
         .mint-header{
             width: 100%;

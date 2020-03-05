@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     .mint-header{
         width: 100%;
         height: 40px;
@@ -26,6 +26,11 @@ export default {
         }
         .mint-button-text{
             font-size: 14px;
+        }
+        .mint-button{
+            .mint-button-text{
+                line-height: 24px;
+            }
         }
     }
 </style>
