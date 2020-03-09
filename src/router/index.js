@@ -3,12 +3,15 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+import AppLogin from "./routers/applogin"
+import AppRegister from "./routers/appregister"
 import Movie from "./routers/movie"
 import Cinema from "./routers/cinema"
 import Mation from "./routers/mation"
 import Mine from "./routers/mine"
 import AppCity from "./routers/appcity"
 import AppCart from "./routers/appcart"
+import AppGood from "./routers/appgood"
 import AppTest from "./routers/apptest"
 import AppSearch from "./routers/appsearch"
 import MovieDetail from "./routers/moviedetail"
@@ -23,12 +26,15 @@ export default new VueRouter({
         {
             path : "/", redirect : "/movie"
         },
+        AppLogin,
+        AppRegister,
         Movie,
         Cinema,
         Mation,
         Mine,
         AppCity,
         AppCart,
+        AppGood,
         AppTest,
         AppSearch,
         MovieDetail,

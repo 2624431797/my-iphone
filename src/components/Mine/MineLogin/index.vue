@@ -5,7 +5,9 @@
                 <img src="../../../assets/user.png" alt="">
             </div>
             <div class="minelogin-name">
-                <span>立即登录</span>
+                <router-link to="/applogin">    
+                    <span>立即登录</span>
+                </router-link>
             </div>
         </div>
     </section>
