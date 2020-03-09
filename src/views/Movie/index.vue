@@ -23,7 +23,8 @@ import Tabbar from "@/components/Tabbar"
 export default {
     data(){
         return {
-            aliveRouter : ["nowing", "coming"]
+            aliveRouter : ["nowing", "coming"],
+            authTest : true
         }
     },
     components : {
@@ -33,6 +34,9 @@ export default {
         Banner,
         Filmbar,
         Tabbar,
+    },
+    created(){
+        sessionStorage.setItem("authTest", this.authTest)
     }
 }
 </script>

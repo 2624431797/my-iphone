@@ -20,7 +20,26 @@ export default {
        MoviePurchaseCard,
        MoviePurchaseFood
     },
-    
+    methods : {
+        handlerLinkId(){
+            this.realm = this.$route.params.id
+        }
+    },
+    beforeRouteEnter(to, from, next){
+        const authTest = sessionStorage.getItem("authTest")
+        if(authTest === "true"){
+            next({
+                path : "/apptest",                  // 跳转到login页面
+                query: { redirect: to.path }        // 记录要进入的目标地址
+            })
+        }
+        else{
+            next()
+        }
+    },
+    created(){
+        this.handlerLinkId()
+    }
 }
 </script>
 

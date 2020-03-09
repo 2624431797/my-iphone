@@ -100,7 +100,7 @@ export default {
                 params : {
                    nm
                 } 
-            });
+            })
             sessionStorage.setItem("app-city", this.cityname);
         }, 
         handlerInit(){

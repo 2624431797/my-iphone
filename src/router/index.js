@@ -9,6 +9,7 @@ import Mation from "./routers/mation"
 import Mine from "./routers/mine"
 import AppCity from "./routers/appcity"
 import AppCart from "./routers/appcart"
+import AppTest from "./routers/apptest"
 import AppSearch from "./routers/appsearch"
 import MovieDetail from "./routers/moviedetail"
 import MoviePurchase from "./routers/moviepurchase"
@@ -28,6 +29,7 @@ export default new VueRouter({
         Mine,
         AppCity,
         AppCart,
+        AppTest,
         AppSearch,
         MovieDetail,
         MoviePurchase,
