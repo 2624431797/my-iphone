@@ -1,29 +1,26 @@
 <template>
     <section class="logincardbox">
         <div class="logincard">
-            <div @submit="onSubmit">
+            <div class="logincard-img">
+                <img src="../../../assets/local.png" alt="加载失败">
+            </div>
+            <van-form @submit="handlerOnSubmit">
                 <van-field
-                    v-model = "username"
-                    name = "用户名"
-                    label = "用户名"
-                    placeholder = "用户名"
+                    v-model="username"
+                    name="手机号"
+                    label="手机号"
+                    placeholder="手机号"
+                    :rules="[{ required: true, message: '请填写手机号' }, { pattern, message: '请输入正确手机号' }]"
                 ></van-field>
                 <van-field
-                    v-model = "password"
-                    type = "password"
-                    name = "密码"
-                    label = "密码"
-                    placeholder = "密码"
+                    v-model="password"
+                    type="password"
+                    name="密码"
+                    label="密码"
+                    placeholder="密码"
+                    :rules="[{ required: true, message: '请填写密码' }]"
                 ></van-field>
-                <van-field 
-                    name = "checkbox" 
-                    label = "记住密码"
-                >
-                    <template #input>
-                        <van-checkbox v-model="checkbox" shape="square" />
-                    </template>
-                </van-field>
-                <div class="logincard-link">
+                <div class="logincard-link" style="margin-top: 16px;">
                     <div class="logincard-link-left">
                         <router-link to="/appregister">
                             <span>立即注册</span>   
@@ -41,7 +38,7 @@
                         native-type="submit"
                     >登 录</van-button>
                 </div>
-            </div>
+            </van-form>
         </div>
     </section>
 </template>
@@ -50,14 +47,18 @@
 export default {
     data() {
         return {
-            username : null,
-            password : null,
+            username : '',
+            password : '',
             checkbox : false,
+            pattern: /1\d{10}/,
         }
     },
+    components : {
+        
+    },
     methods: {
-        onSubmit(values){
-            console.log('submit', values)
+        handlerOnSubmit(values){
+            console.log(values)
         },
     },
 }
@@ -66,18 +67,28 @@ export default {
 <style lang="scss">
     .logincard{
         width: 100%;
+        .logincard-img{
+            display: flex;
+            height: 160px;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 60px;
+                height: 60px;
+            }
+        }
         .van-cell{
             margin-bottom: 10px;
         } 
         .logincard-link{
-            height: 20px;
-            margin-bottom: 10px;
+            height: 30px;
+            margin-bottom: 50px;
             div{
                 width: 50%;
-                height: 20px;
+                height: 30px;
                 float: left;
                 text-align: center;
-                line-height: 20px;
+                line-height: 30px;
                 span,a{
                     color: #1989fa;
                 }

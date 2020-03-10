@@ -85,3 +85,9 @@ export const getMationList = params => {
 export const getMineCoupon = select => {
     return service.post(`/api/m1/getminecoupon/${select}`)
 }
+
+/* 登录注册 */
+//验证码接口
+export const getTestCode = () => {
+    return service.post(`/api/x1/getTestCode`)
+}
