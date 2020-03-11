@@ -3,5 +3,8 @@ export default {
     component : () => import("@/views/Mine"),
     children : [
         
-    ]
+    ],
+    meta: {
+        isLogin: false  //不需要登录
+    }
 }

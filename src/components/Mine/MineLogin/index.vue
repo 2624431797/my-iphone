@@ -2,12 +2,14 @@
     <section class="mineloginbox">
         <div class="minelogin-container">
             <div class="minelogin-img">
-                <img src="../../../assets/user.png" alt="">
+                <img v-if="!isAuthLogin" src="../../../assets/user.png" alt="">
+                <img v-else :src="userImg" alt="">
             </div>
             <div class="minelogin-name">
-                <router-link to="/applogin">    
+                <router-link to="/applogin" v-if="!isAuthLogin">    
                     <span>立即登录</span>
                 </router-link>
+                <span v-else>{{userName}}</span>
             </div>
         </div>
     </section>
@@ -15,7 +17,23 @@
 
 <script>
 export default {
-
+    data(){
+        return {
+            isAuthLogin : false,
+            userName : "",
+            userImg : ""
+        }
+    },
+    methods : {
+        handlerGetUserMsg(){
+            this.isAuthLogin = localStorage.getItem("Flag")
+            this.userName = localStorage.getItem("userName")
+            this.userImg = localStorage.getItem("userImg")
+        }
+    },
+    created(){
+        this.handlerGetUserMsg()
+    }
 }
 </script>
 

@@ -1,7 +1,7 @@
 export default {
     path : "/notfound",
     component : () => import("@/views/NotFound"),
-    children : [
-        
-    ]
+    meta: {
+        isLogin: false  //不需要登录
+    }
 }

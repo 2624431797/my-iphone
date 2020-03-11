@@ -44,6 +44,10 @@
 </template>
 
 <script>
+import { Dialog, Toast } from 'vant'
+import { UserLogin } from "@/services"
+import { mapActions, mapState, mapMutations, mapGetters } from "vuex"
+
 export default {
     data() {
         return {
@@ -53,13 +57,33 @@ export default {
             pattern: /1\d{10}/,
         }
     },
-    components : {
-        
-    },
     methods: {
         handlerOnSubmit(values){
-            console.log(values)
-        },
+            const params = {username : this.username, password : this.password}
+            UserLogin(params).then(res => {
+                if(res.code !== 200){
+                    Dialog.alert({
+                        message: '登录失败',
+                        confirmButtonColor: "#D78900"
+                    })
+                }
+                else{  
+                    this.$store.commit("userObj", {username : res.data.userName, userimg: res.data.userImg})
+                    this.$store.dispatch("userLogin", true)          //设置Vuex登录标志为true，默认userLogin为false
+                    //Vuex在用户刷新的时候userLogin会回到默认值false
+                    localStorage.setItem("Flag", "isLogin")          //我们设置一个名为Flag，值为isLogin的字段，作用是如果Flag有值且为isLogin的时候，证明用户已经登录
+                    localStorage.setItem("userName", this.$store.state.myLogin.userName)
+                    localStorage.setItem("userImg", this.$store.state.myLogin.userImg)
+                    Toast.loading({
+                        message: '登录中',
+                        forbidClick: true
+                    })
+                    setTimeout(() => {
+                        this.$router.push("/mine")                           //登录成功后跳转到指定页面
+                    }, 2000)
+                }
+            })
+        }
     },
 }
 </script>

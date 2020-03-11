@@ -87,6 +87,11 @@ export const getMineCoupon = select => {
 }
 
 /* 登录注册 */
+//登录接口
+export const UserLogin = params => {
+    return service.post(`/api/x1/userLogin`, params)
+}
+
 //验证码接口
 export const getTestCode = () => {
     return service.post(`/api/x1/getTestCode`)

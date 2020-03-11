@@ -22,12 +22,30 @@
             <i slot="icon" class="iconfont icon-kefu" style="color: #409eff"/>
             <b class="el-icon-arrow-right"></b>
         </mt-cell>
+        <div v-if="isAuthLogin" @click="handlerOutLogin" class="out-btn">
+            <span>退出登录</span>
+        </div>
     </section>
 </template>
 
 <script>
 export default {
-
+    data(){
+        return {
+            isAuthLogin : false,
+        }
+    },
+    methods : {
+        handlerOutLogin(){
+            localStorage.removeItem("Flag")
+            localStorage.removeItem("userName")
+            localStorage.removeItem("userImg")
+            this.$router.push("/")
+        }
+    },
+    created(){
+        this.isAuthLogin = localStorage.getItem("Flag")
+    }
 }
 </script>
 
@@ -46,6 +64,16 @@ export default {
                 .mint-cell-text{
                     margin-top: 1px;
                 }
+            }
+        }
+        .out-btn{
+            width: 100%;
+            height: 44px;
+            padding: 16px;
+            border-top: #ccc 1px solid;
+            background: #fff;
+            span{
+                font-weight: bold;
             }
         }
     }

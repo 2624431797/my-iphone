@@ -35,8 +35,17 @@ export default {
         Filmbar,
         Tabbar,
     },
+    methods : {
+        handlerChangeIsCity(){
+            let isCity = sessionStorage.getItem("isCity")
+            if(!isCity){
+                sessionStorage.setItem("isCity", false)
+            }
+        }
+    },
     created(){
         sessionStorage.setItem("authTest", this.authTest)
+        this.handlerChangeIsCity()
     }
 }
 </script>

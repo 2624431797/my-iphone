@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import { Dialog } from 'vant'
+import { Dialog, Toast } from 'vant'
 import { getTestCode } from "@/services"
 
 export default {
@@ -147,7 +147,14 @@ export default {
                 })
             }
             else{
-                console.log(this.username, this.password)
+                Toast.loading({
+                    message: '注册成功',
+                    forbidClick: true,
+                    duration: 1000
+                })
+                setTimeout(() => {
+                    this.$router.push("/applogin")                           //登录成功后跳转到指定页面
+                }, 1000)
             }
         },
         validator(val){

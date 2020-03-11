@@ -93,6 +93,7 @@ export default {
             return k.substring(0, 1) == j;
         },
         handlerChooseCity(id, nm) {
+            sessionStorage.setItem("isCity", true)
             this.$store.commit("changeCity", { id: id, nm: nm });
             this.cityname = nm
             this.$router.push({

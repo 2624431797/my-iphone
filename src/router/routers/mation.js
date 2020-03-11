@@ -3,5 +3,8 @@ export default {
     component : () => import("@/views/Mation"),
     children : [
         
-    ]
+    ],
+    meta: {
+        isLogin: false  //不需要登录
+    }
 }
