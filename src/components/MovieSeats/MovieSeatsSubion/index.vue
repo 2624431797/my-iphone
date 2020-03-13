@@ -6,9 +6,12 @@
                     class="movieseatssubion-seat-wrapper" 
                     style="left: -218px"
                     id="seatssubion"
-                    @mousedown="handlerDown" @touchstart="handlerDown"
-                    @mousemove="handlerMove" @touchmove.prevent="handlerMove"
-                    @mouseup="handlerEnd"    @touchend="handlerEnd"
+                    @mousedown="handlerDown" 
+                    @mousemove="handlerMove" 
+                    @mouseup="handlerEnd"
+                    @touchstart="handlerDown"
+                    @touchmove.prevent="handlerMove"
+                    @touchend="handlerEnd"    
                 >
                     <div class="movieseatssubion-seat-wrapper-screen">
                         {{theatres}}
@@ -83,6 +86,8 @@
 </template>
 
 <script>
+import { Toast } from 'vant';
+
 export default {
     data(){
         return {                                                                                                                                                                                                                                                                                                                                                          
@@ -259,6 +264,14 @@ export default {
                 }
             }
             this.seatArray = oldArray
+            Toast.loading({
+                message: '确认支付中',
+                forbidClick: true,
+                duration: 2000
+            })
+            setTimeout(() => {
+                this.$router.push("/apppay")
+            }, 1800)
         },
         //处理座位选择逻辑
         handlerChooseSeat(row, col){
