@@ -39,6 +39,7 @@ export default {
         handlerChangeIsCity(){
             let isCity = sessionStorage.getItem("isCity")
             if(!isCity){
+                this.$router.go(0)
                 sessionStorage.setItem("isCity", false)
             }
         }

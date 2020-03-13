@@ -69,7 +69,7 @@ router.beforeEach((to, from, next) => {
         next()
         //如果已登录，还想想进入登录注册界面，则定向回首页
         if(to.name === "applogin"){
-            //alert('请先退出登录')
+            alert('请先退出登录')
             next({ path: "/" })
         }
     }
@@ -80,7 +80,6 @@ router.beforeEach((to, from, next) => {
             next({
                 path: '/applogin',
             })
-            //alert('请先登录')
         }
         //用户进入无需登录的界面，则跳转继续
         else{

@@ -166,6 +166,7 @@ export default {
 <style lang="scss">
     .movielistbox{
         height: 100%;
+        margin-bottom: 60px;
         &.margintop{
             margin-top: 44px;
         }

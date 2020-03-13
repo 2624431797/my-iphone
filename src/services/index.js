@@ -48,6 +48,11 @@ export const getMoviePurchaseFood = id => {
     return service.post(`/api/v1/getmoviepurchasefood/${id}`)
 }
 
+//首页影片购买页面毛玻璃部分
+export const getmoviepurchaseBanner = id => {
+    return service.post(`/api/v1/getmoviepurchaseBanner/${id}`)
+}
+
 //根据日期查询数据
 export const getMoviePurchaseTabList = (id, date) => {
     return service.post(`/api/v1/getdatemoviepurchase/${id}`, date)

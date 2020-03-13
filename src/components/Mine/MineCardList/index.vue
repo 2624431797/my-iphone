@@ -73,6 +73,8 @@ export default {
             border-top: #ccc 1px solid;
             background: #fff;
             span{
+                color: #ff5f16;
+                font-size: 15px;
                 font-weight: bold;
             }
         }

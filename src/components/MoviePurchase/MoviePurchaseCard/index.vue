@@ -1,18 +1,7 @@
 <template>
     <section class="moviepurchasecardbox">
-        <div v-if="!movie" class="mloading"></div>
+        <div v-if="!film" class="mloading"></div>
         <div v-else class="moviepurchasecard">
-            <div class="moviepurchasecard-title">
-                <div class="moviepurchasecard-tit">
-                    <span>{{movie.title}}</span>
-                    <b>{{movie.rating.count}}分</b>
-                </div>
-                <div class="moviepurchasecard-sub">
-                    <i>{{movie.country}}</i>
-                    <span>{{movie.genres}}</span>
-                    <b>{{movie.duration}} 分钟</b>
-                </div>
-            </div>
             <div class="moviepurchasecard-tabbar">
                 <mt-navbar class="moviepurchasecard-navbar" v-model="selected">
                     <mt-tab-item id="1">今天 {{this.nowDate}}</mt-tab-item>
@@ -127,7 +116,6 @@ export default {
     data(){
         return {
             realm : "",
-            movie : null,
             film : null,
             theatres : "",
             selected : "1",
@@ -176,13 +164,6 @@ export default {
             const billCode = approval.split("/")
             this.realm = billCode[2]
         },
-        handlerInitGet(){
-            let id = this.realm
-            let date = this.relamDate
-            getMoviePurchase(id).then(res => {
-                this.movie = res.data.userlist
-            }) 
-        },
         handlerInitGetTab(){
             let id = this.realm
             let date = this.relamDate
@@ -215,7 +196,6 @@ export default {
     },
     created(){
         this.handlerRealm()
-        this.handlerInitGet()
         this.handlerInitGetTab()
         this.handlerGetDate()
     }
@@ -224,38 +204,7 @@ export default {
 
 <style lang="scss">
     .moviepurchasecardbox{
-        margin-top: 225px;
         background: #f4f4f4;
-        .moviepurchasecard-title{
-            width: 100%;
-            padding: 16px 28px;
-            margin-bottom: 10px;
-            background: #fff;
-            border-bottom: 1px solid #dedede;
-            .moviepurchasecard-tit{
-                height: 30px;
-                line-height: 30px;
-                span{
-                    float: left;
-                    color: #191a1b;
-                    font-size: 18px;
-                    font-weight: bold;
-                }
-                b{
-                    float: right;
-                    font-size: 18px;
-                    font-style: italic;
-                    color: #ffb232;
-                }
-            }
-            .moviepurchasecard-sub{
-                display: flex;
-                justify-content: space-between;
-                line-height: 32px;
-                text-align: center;
-                color: #797d82;
-            }
-        }
         .moviepurchasecard-tabbar{
             width: 100%;
             padding: 0 10px;
