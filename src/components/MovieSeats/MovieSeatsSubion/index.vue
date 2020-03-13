@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import { Toast } from 'vant';
+import { Toast, Dialog } from 'vant';
 
 export default {
     data(){
@@ -156,13 +156,15 @@ export default {
                 return
             }
             //提示用户无合法位置可选
-            alert('无合法位置可选!')
+            Dialog.alert({
+                message: '无合法位置可选'
+            })
         },
         //推荐座位
         handlerSearchSeatByDirection(fromRow, toRow, num){
             let currentDirectionSearchResult = []
             let largeRow = fromRow > toRow ? fromRow : toRow, smallRow = fromRow > toRow ? toRow : fromRow
-            for(let i = smallRow; i <= largeRow ; i++){
+            for(let i = smallRow; i <= largeRow; i++){
                 //每一排的搜索,找出该排里中轴线最近的一组座位
                 let tempRowResult = [], minDistanceToMidLine = Infinity
                 for(let j = 0;j <= this.seatCol - num; j++){
