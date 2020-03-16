@@ -7,6 +7,7 @@ import myLogin from "./myLogin"
 import myCity from "./myCity"
 import myGoods from "./myGoods"
 import myCart from "./myCart"
+import mySeats from "./mySeats"
 
 export default new Vuex.Store({
     modules : {
@@ -14,5 +15,6 @@ export default new Vuex.Store({
         myCity,
         myGoods,
         myCart,
+        mySeats,
     }
 })

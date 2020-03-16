@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import { Toast, Dialog } from 'vant';
+import { Toast, Dialog } from 'vant'
 
 export default {
     data(){
@@ -104,6 +104,11 @@ export default {
             nx: '', ny: '', dx: '', dy: '', xPum: '', yPum: '',
             newArrNum : [],
             newArrLength : 0
+        }
+    },
+    watch : {
+        MoviePriceSumReal(newVal, oldVal){
+            this.handlerCunChu()
         }
     },
     computed : {
@@ -266,14 +271,21 @@ export default {
                 }
             }
             this.seatArray = oldArray
-            Toast.loading({
-                message: '确认支付中',
-                forbidClick: true,
-                duration: 2000
-            })
-            setTimeout(() => {
-                this.$router.push("/apppay")
-            }, 1800)
+            if(this.MoviePriceSumReal){
+                //vuex存储
+                this.$store.commit("changePriceSeats", {priceTotal : this.MoviePriceSumReal})
+                Toast.loading({
+                    message: '确认支付中',
+                    forbidClick: true,
+                    duration: 2000
+                })
+                setTimeout(() => {
+                    this.$router.push("/apppay")
+                }, 1800)
+            }
+            else{
+                Toast.fail('请选择座位')
+            }
         },
         //处理座位选择逻辑
         handlerChooseSeat(row, col){
@@ -363,6 +375,11 @@ export default {
                 return item > 0
             })
             this.newArrLength = iArr.length
+        },
+        //
+        handlerCunChu(){
+            sessionStorage.setItem("MoviePriceState", this.MoviePriceState)
+            sessionStorage.setItem("MoviePriceSumReal", this.MoviePriceSumReal)
         }
     },
     mounted(){
