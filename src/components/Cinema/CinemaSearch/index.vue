@@ -55,7 +55,7 @@ export default {
             z-index: 999999;
             .cinemasearch-city{
                 display: flex;
-                width: 20%;
+                width: 25%;
                 height: 44px;
                 justify-content: center;
                 align-items: center;
