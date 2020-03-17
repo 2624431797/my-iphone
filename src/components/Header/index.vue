@@ -68,7 +68,7 @@ export default {
             this.$router.push("/")
         },
         handlerLinkLogin(){
-            this.$router.push("/login")
+            this.$router.push("/applogin")
         },
         handlerLinkCart(){
             this.$router.push("/appcart")

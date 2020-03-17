@@ -85,6 +85,11 @@ export const getMationList = params => {
     return service.post(`/api/z1/getmationlist`, params)
 }
 
+//资讯详情
+export const getMationDetail = id => {
+    return service.post(`/api/z1/getMationDetail/${id}`)
+}
+
 /* 影片我的 */
 //影券
 export const getMineCoupon = select => {

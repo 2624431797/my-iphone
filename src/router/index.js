@@ -16,6 +16,7 @@ import AppTest from "./routers/apptest"
 import AppPay from "./routers/apppay"
 import AppSearch from "./routers/appsearch"
 import MovieDetail from "./routers/moviedetail"
+import MationDetail from "./routers/mationdetail"
 import MoviePurchase from "./routers/moviepurchase"
 import MovieGoods from "./routers/moviegoods"
 import MovieSeats from "./routers/movieseats"
@@ -40,6 +41,7 @@ export default new VueRouter({
         AppPay,
         AppSearch,
         MovieDetail,
+        MationDetail,
         MoviePurchase,
         MovieGoods,
         MovieSeats,

@@ -11,20 +11,22 @@
                 v-for="item in mationlist"
                 :key="item.id"
             >
-                <div class="mationlist-item">
-                    <div class="mation-list">
-                        <h4>《{{item.title}}》</h4>
-                        <p>{{item.paragraph}}</p>
-                        <div class="mation-subion">
-                            <i>{{item.status}}|{{item.area}}</i>
-                            <b>{{item.name}}</b>
+                <router-link tag="div" :to="{name : 'mationdetail', params : {id : item.id}}">
+                    <div class="mationlist-item">
+                        <div class="mation-list">
+                            <h4>《{{item.title}}》</h4>
+                            <p>{{item.paragraph}}</p>
+                            <div class="mation-subion">
+                                <i>{{item.status}}|{{item.area}}</i>
+                                <b>{{item.name}}</b>
+                            </div>
+                        </div>
+                        <div class="mation-img">
+                            <img :src="item.img" alt="加载失败">
                         </div>
                     </div>
-                    <div class="mation-img">
-                        <img :src="item.img" alt="加载失败">
-                    </div>
-                </div>
-                <img src="../../../assets/mat.jpg" alt="">
+                    <img src="../../../assets/mat.jpg" alt="">
+                </router-link>
             </li>
         </ul>
     </section>

@@ -11,7 +11,7 @@
                     <span style="margin-left: 10px;">￥{{priceGoodsNow}}</span>
                 </div>
             </div>
-            <div class="moviegoodsbtn-bot">
+            <div class="moviegoodsbtn-bot" @click="handlerPayBtn">
                 <a href="JavaScript: ;">确认支付</a>
             </div>
         </div>
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { Toast } from 'vant'
+
 export default {
     data(){
         return {
@@ -28,6 +30,18 @@ export default {
     computed : {
         priceGoodsNow : function(){
             return this.priceGoods = this.$store.state.myGoods.priceGoods
+        }
+    },
+    methods : {
+        handlerPayBtn(){
+            sessionStorage.setItem("MoviePriceSumReal", this.priceGoodsNow)
+            Toast.loading({
+                message: '正在支付',
+                forbidClick: true,
+            })
+            setTimeout(() => {
+                this.$router.push("/apppay")
+            }, 1800);
         }
     }
 }
