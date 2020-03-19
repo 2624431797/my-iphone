@@ -13,6 +13,7 @@ import AppCity from "./routers/appcity"
 import AppCart from "./routers/appcart"
 import AppGood from "./routers/appgood"
 import AppTest from "./routers/apptest"
+import AppTestImg from "./routers/apptestimg"
 import AppPay from "./routers/apppay"
 import AppSearch from "./routers/appsearch"
 import MovieDetail from "./routers/moviedetail"
@@ -38,6 +39,7 @@ export default new VueRouter({
         AppCart,
         AppGood,
         AppTest,
+        AppTestImg,
         AppPay,
         AppSearch,
         MovieDetail,

@@ -51,6 +51,7 @@ import { mapActions, mapState, mapMutations, mapGetters } from "vuex"
 export default {
     data() {
         return {
+            realm : "",
             username : '',
             password : '',
             checkbox : false,
@@ -58,6 +59,11 @@ export default {
         }
     },
     methods: {
+        handlerRealm(){
+            const approval = window.location.hash
+            const billCode = approval.split("/")
+            this.realm = billCode[1]
+        },
         handlerOnSubmit(values){
             const params = {username : this.username, password : this.password}
             UserLogin(params).then(res => {
@@ -78,8 +84,9 @@ export default {
                         message: '登录中',
                         forbidClick: true
                     })
+                    this.handlerRealm()
                     setTimeout(() => {
-                        this.$router.push("/mine")                           //登录成功后跳转到指定页面
+                        this.$router.push({name : "apptestimg", params: { realm: this.realm }})                           //登录成功后跳转到指定页面
                     }, 2000)
                 }
             })

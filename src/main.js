@@ -41,6 +41,10 @@ Vue.use(Vant)
 import moment from 'moment'
 Vue.prototype.$moment = moment
 
+//图片验证
+import SlideVerify from 'vue-monoplasty-slide-verify'
+Vue.use(SlideVerify)
+
 //城市选择拦截
 router.beforeEach((to, from, next) => {
     let isCity = sessionStorage.getItem("isCity")
@@ -69,7 +73,6 @@ router.beforeEach((to, from, next) => {
         next()
         //如果已登录，还想想进入登录注册界面，则定向回首页
         if(to.name === "applogin"){
-            alert('请先退出登录')
             next({ path: "/" })
         }
     }

@@ -98,6 +98,7 @@ import { getTestCode } from "@/services"
 export default {
     data() {
         return {
+            realm : "",
             active: "0",
             username : '',
             password : '',
@@ -112,6 +113,11 @@ export default {
         [Dialog.Component.name]: Dialog.Component
     },
     methods : {
+        handlerRealm(){
+            const approval = window.location.hash
+            const billCode = approval.split("/")
+            this.realm = billCode[1]
+        },
         handlerGetTestCode(){
             getTestCode().then(res => {
                 this.getTestCode = res.data.testCode
@@ -152,8 +158,9 @@ export default {
                     forbidClick: true,
                     duration: 1000
                 })
+                this.handlerRealm()
                 setTimeout(() => {
-                    this.$router.push("/applogin")                           //登录成功后跳转到指定页面
+                    this.$router.push({name : "apptestimg", params: { realm: this.realm }})                           //注册成功后跳转到指定页面
                 }, 1000)
             }
         },
