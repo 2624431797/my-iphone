@@ -1,10 +1,24 @@
 {
   "id": "1595296",
-  "name": "sss",
+  "name": "my-iphone",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
+    {
+      "icon_id": "7605161",
+      "name": "QR-code2",
+      "font_class": "QR-code",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "2570123",
+      "name": "位置",
+      "font_class": "weizhi",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
     {
       "icon_id": "376169",
       "name": "微信支付2",

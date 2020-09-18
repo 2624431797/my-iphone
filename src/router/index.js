@@ -7,6 +7,7 @@ import AppLogin from "./routers/applogin"
 import AppRegister from "./routers/appregister"
 import Movie from "./routers/movie"
 import Cinema from "./routers/cinema"
+import Code from "./routers/code"
 import Mation from "./routers/mation"
 import Mine from "./routers/mine"
 import AppCity from "./routers/appcity"
@@ -33,6 +34,7 @@ export default new VueRouter({
         AppRegister,
         Movie,
         Cinema,
+        Code,
         Mation,
         Mine,
         AppCity,

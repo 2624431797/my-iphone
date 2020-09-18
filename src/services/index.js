@@ -1,48 +1,40 @@
-//使用axios异步操作
-import axios from "axios"
-
-const isDev = process.env.NODE_ENV === "development"
-
-const service = axios.create({
-    baseURL : isDev ? "http://rap2api.taobao.org/app/mock/241571" : ""
-})
-
-//axios拦截器   (请求之前拦截/响应之后拦截)
-service.interceptors.request.use(config => {
-    //token放入localStorage.getItem("authToken")
-    config.data = {...config.data, "authToken" : "sdfsdfsdfasd"}
-    return config
-})
-
-service.interceptors.response.use(res => {
-    if(res.code = 200){
-        return res.data
-    }
-    else{
-        console.log("连接失败!")
-    }
-})
+import service from "./service"
 
 /* 影片主页 */
 //首页轮播
-export const getBannerList = () => {
-    return service.post(`/api/s1/getBannerList`)
+export const getBannerList = params => {
+    return service({
+        url: "/api/s1/getBannerList",
+        method: "get",
+        params
+    })
 }
 
 //首页影片列表
 export const getMovieList = (select, params) => {
-    return service.post(`/api/s1/getmovielist/${select}`, params)
+    return service({
+        url: `/api/s1/getmovielist/${select}`,
+        method: "post",
+        params
+    })
 }
 
 //首页影片详情页
 export const getMovieDetail = id => {
-    return service.post(`/api/v1/getmoviedetail/${id}`)
+    return service({
+        url: `/api/v1/getmoviedetail/${id}`,
+        method: "post"
+    })
 }
 
 //首页影片购买页
 export const getMoviePurchase = id => {
-    return service.post(`/api/v1/getmoviepurchase/${id}`)
+    return service({
+        url: `/api/v1/getmoviepurchase/${id}`,
+        method: "post"
+    })
 }
+
 //首页影片购买页商品
 export const getMoviePurchaseFood = id => {
     return service.post(`/api/v1/getmoviepurchasefood/${id}`)
