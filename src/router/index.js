@@ -28,7 +28,7 @@ import NotFound from "./routers/notfound"
 export default new VueRouter({
     routes : [
         {
-            path : "/", redirect : "/movie"
+            path : "/", redirect : "/code"
         },
         AppLogin,
         AppRegister,

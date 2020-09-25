@@ -45,6 +45,10 @@ Vue.prototype.$moment = moment
 import SlideVerify from 'vue-monoplasty-slide-verify'
 Vue.use(SlideVerify)
 
+//粒子
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
+
 //城市选择拦截
 router.beforeEach((to, from, next) => {
     let isCity = sessionStorage.getItem("isCity")

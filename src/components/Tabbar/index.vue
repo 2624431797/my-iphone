@@ -21,7 +21,7 @@ export default {
       tabs: [
         { id: 1, tit: "影片", mark: "movie", cla: "icon-dianying" },
         { id: 2, tit: "影院", mark: "cinema", cla: "icon-yingyuan" },
-        { id: 3, tit: "二维码", mark: "code", cla: "icon-QR-code" },
+        { id: 3, tit: "星星", mark: "code", cla: "" },
         { id: 4, tit: "资讯", mark: "mation", cla: "icon-zixun" },
         { id: 5, tit: "我的", mark: "mine", cla: "icon-wode" }
       ]

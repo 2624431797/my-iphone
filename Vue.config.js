@@ -1,6 +1,6 @@
 module.exports = {
     // 基本路径
-    publicPath: '/',
+    publicPath: './',
     // 输出文件目录
     outputDir: 'dist',
     // eslint-loader 是否在保存的时候检查
@@ -33,15 +33,15 @@ module.exports = {
         port: 9090,
         https: false,
         hotOnly: false,
-        /* proxy: {   //http://47.96.0.211:9000         
+        proxy: {   //http://47.96.0.211:9000         
             "/api":{
-                target:"",
+                target:"http://rap2api.taobao.org/app/mock/241571",
                 changeOrigin:true,
                 pathRewrite:{
                     "^/api":""
                 }
             }
-        },  */
+        }, 
         before: app => { }
     },
     // 第三方插件配置

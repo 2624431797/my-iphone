@@ -1,0 +1,230 @@
+.codebox {
+    width: 100%;
+
+    .container {
+        position: relative;
+
+        .bg {
+            position: absolute;
+            width: 100%;
+            height: 752px;
+            top: 0;
+            left: 0;
+            background: url(../image/bg.jpg) 0 0 no-repeat;
+            background-size: 100% 100%;
+            z-index: -1;
+
+            #particles-js {
+                height: 100%;
+            }
+        }
+
+        .van-nav-bar {
+            background-color: transparent;
+
+            .van-nav-bar__left {
+                .van-icon {
+                    color: #fff;
+                    font-weight: bold;
+                }
+            }
+
+            .van-nav-bar__title {
+                color: #fff;
+                font-weight: bold;
+            }
+
+            .van-nav-bar__right {
+                .van-icon {
+                    color: #fff;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .user-container {
+            display: flex;
+            width: 100%;
+            height: 250px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .img {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 26px;
+                border-radius: 50%;
+                -webkit-animation: ani 2s linear infinite;
+                background: url(../image/qingqing.jpg) 0 0 no-repeat;
+                background-size: 100% 100%;
+            }
+
+            @keyframes ani {
+                0% {
+                    box-shadow: 0 0 0px #ffe7a6
+                }
+
+                25% {
+                    box-shadow: 0 0 20px #ffe7a6
+                }
+
+                50% {
+                    box-shadow: 0 0 40px #ffe7a6
+                }
+
+                75% {
+                    box-shadow: 0 0 20px #ffe7a6
+                }
+
+                100% {
+                    box-shadow: 0 0 0px #ffe7a6
+                }
+            }
+
+            .txt {
+                font-weight: bold;
+                font-size: 16px;
+                color: #fdffb4;
+            }
+        }
+
+        .star-container {
+            position: relative;
+            width: 100%;
+            height: 456px;
+            overflow: hidden;
+
+            .star-content {
+                position: absolute;
+                width: 60%;
+                height: 456px;
+                transition: all 1s ease;
+                background: rgba(255, 255, 255, .5);
+                box-shadow: 1px 10px 50px rgba(0, 0, 0, .3);
+
+                .btn-content {
+                    position: absolute;
+                    display: flex;
+                    width: 36px;
+                    height: 36px;
+                    justify-content: center;
+                    align-items: center;
+                    top: 50%;
+                    margin-top: -10px;
+                    border-radius: 50%;
+                    background: rgba(0, 0, 0, .5);
+
+                    .van-icon {
+                        color: #fff;
+                        font-size: 20px;
+                        font-weight: bold;
+
+                        &.active-static {
+                            transition: all 1s ease;
+                            transform: rotateZ(0deg);
+                        }
+
+                        &.active-right {
+                            transition: all 1s ease;
+                            transform: rotateZ(-180deg);
+                        }
+
+                        &.active-left {
+                            transition: all 1s ease;
+                            transform: rotateZ(-180deg);
+                        }
+                    }
+                }
+
+                &.star-left {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                    top: 0;
+                    left: 0;
+                    border-top-right-radius: 50%;
+                    border-bottom-right-radius: 50%;
+                    transform: translateX(-100%);
+
+                    .left-btn {
+                        right: -50px;
+                    }
+                }
+
+                &.star-right {
+                    top: 0;
+                    right: 0;
+                    border-top-left-radius: 50%;
+                    border-bottom-left-radius: 50%;
+                    transform: translateX(100%);
+
+                    .right-btn {
+                        left: -50px;
+                    }
+                }
+            }
+
+            .main-content {
+                width: 100%;
+                height: 100%;
+
+                &.main-left {
+                    float: left;
+                    border-top-right-radius: 50%;
+                    border-bottom-right-radius: 50%;
+                    overflow: hidden;
+
+                    .van-tabs {
+                        height: 436px;
+                        .van-tabs__wrap {
+                            .van-tabs__nav {
+                                background: transparent;
+
+                                .van-tab {
+                                    flex: 0 1 36%;
+                                    color: #fdffb4;
+                                    font-weight: bold;
+                                }
+
+                                .van-tabs__line {
+                                    height: 2px;
+                                    background: #fdffb4;
+                                }
+                            }
+                        }
+
+                        [class*=van-hairline]::after {
+                            border: transparent;
+                        }
+
+                        .van-tabs__content {
+                            padding-top: 10px;
+
+                            .van-tab__pane {
+                                position: relative;
+                                height: 396px;
+
+                                .text {
+                                    position: absolute;
+                                    width: 80px;
+                                    height: 24px;
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 10%;
+                                    margin: auto;
+                                    color: #fff;
+                                    font-weight: bold;
+                                    font-size: 14px;
+                                    text-align: center;
+                                    line-height: 24px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

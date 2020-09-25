@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     flag() {
-      return this.mark === this.sel ? true : false
+      return this.mark === this.sel ? true : false;
     }
   }
 };
@@ -38,10 +38,20 @@ export default {
     border-top: 0.5px solid transparent;
 
     i {
-      font-size: 26px;
+      position: absolute;
+      display: block;
+      width: 42px;
+      height: 42px;
+      left: 18px;
+      top: -12px;
+      font-size: 36px;
+      background: url(./image/qingqing.jpg) 0 0 no-repeat;
+      background-size: 100% 100%;
+      z-index: 99999999999;
     }
 
     span {
+      margin-top: 30px;
       font-weight: bold;
     }
   }

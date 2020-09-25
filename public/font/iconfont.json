@@ -6,6 +6,34 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "742824",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "792342",
+      "name": "music2-音乐",
+      "font_class": "music2yinle",
+      "unicode": "e69e",
+      "unicode_decimal": 59038
+    },
+    {
+      "icon_id": "4472418",
+      "name": "music-1",
+      "font_class": "music-",
+      "unicode": "e6fa",
+      "unicode_decimal": 59130
+    },
+    {
+      "icon_id": "17281185",
+      "name": "鸡腿",
+      "font_class": "drumsticks",
+      "unicode": "e734",
+      "unicode_decimal": 59188
+    },
+    {
       "icon_id": "7605161",
       "name": "QR-code2",
       "font_class": "QR-code",
